@@ -1,0 +1,3596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="build/resources/test" path="src/test/resources">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="resource" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="build/classes/java/test" path="src/test/java">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="build/resources/main" path="src/main/resources">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="resource" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="build/classes/java/main" path="src/main/java">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="build/classes/java/test" path="build/generated/sources/annotationProcessor/java/test">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="build/classes/java/main" path="build/generated/sources/annotationProcessor/java/main">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-25">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.teamcity.service.messages.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.locking.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson3.module.kotlin.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.rd.swing.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.download.pgp.verifier.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson3.jr.objects.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.protobuf.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.http.client.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.designer.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.compress.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.credentialStore.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/util-8.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.reporting.api.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jsoup.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.javax.annotation.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.editor.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.dom.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.bifurcan.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.rd.text.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.statistics.config.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson3.databind.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jsonpath.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.fastutil.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ktor.client.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.blockmap.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.externalSystem.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.statistics.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.coroutines.slf4j.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.welcomeScreen.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.xtext.xbase.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.debugger.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/eclipse.lsp4j.debug.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.externalSystem.dependencyUpdater.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.favoritesTreeView.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.xz.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kryo5.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.lsp.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.builtInServer.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.diff.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.diff.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.opentelemetry.semconv.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.util.coroutines.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ktor.server.cio.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.cs.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/javax.activation.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.bouncy.castle.provider.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/jaxb-api.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.execution.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.codeStyle.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.ui.inspector.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.remoteServers.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.hash4j.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson3.dataformat.yaml.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jaxen.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.statistics.uploader.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.netty.handler.proxy.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/trove.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.dom.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.scopes.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.remoteServers.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.rhizomedb.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ktor.client.cio.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.datagrip.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.aalto.xml.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.externalSystem.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.html.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.duplicates.analysis.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.icons.impl.intellij.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.semver.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.kernel.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.opentelemetry.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/util_rt.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.regexp.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.debugger.impl.rpc.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/forms_rt.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.discoverability.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.opentelemetry.exporter.otlp.common.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.webide.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/util.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.io.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.gson.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.stream.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.rml.dfa.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.rpc.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.projectModel.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.parser.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.rd.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.swingx.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.lsp.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.builtInServer.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.opentelemetry.exporter.sender.jdk.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson.databind.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.coroutines.debug.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jgoodies.binding.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.util.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.imaging.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.velocity.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.core.plugins.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/product-backend.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.miglayout.swing.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.cli.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.experiment.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.asm.tools.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/external-system-rt.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.rpc.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.opentelemetry.extension.kotlin.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson.annotations.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/platform-loader.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.welcomeScreen.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.ui.common.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.multiplatform.shims.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ion.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.rhino.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.core.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.indexing.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.xerces.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.syntax.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ktor.utils.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jgoodies.common.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.runtime.product.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.bootstrap.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.eel.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.guava.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jsvg.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jbr.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.pty4j.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.psi.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.lang.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson.dataformat.yaml.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.rhizomedb.transactor.rebase.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.rd.framework.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jediterm.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jsch.agent.proxy.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson3.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.hdr.histogram.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/jps-model.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.reporting.shared.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.codec.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.snakeyaml.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.lvcs.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.debugger.impl.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.rhizomedb.transactor.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.lang.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.opentelemetry.sdk.autoconfigure.spi.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.configurationStore.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.util.serialization.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.testIntegration.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/eclipse.lsp4j.jsonrpc.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.initialConfigImport.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.projectModel.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.usageView.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/eclipse.lsp4j.jsonrpc.debug.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.execution.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ini4j.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.util.diff.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlin.reflect.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.serialization.protobuf.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.psi.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.radixTrie.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.proxy.vole.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.classgraph.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.datetime.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.bazel.runfiles.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.credentialStore.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jediterm.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.kernel.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.debugger.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.remoteServers.agent.rt.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.oro.matcher.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.threadDumpParser.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.analysis.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.credentialStore.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.remote.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.shared.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.macro.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.andel.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.icu4j.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.java.compatibility.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.sshj.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.asm.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.debugger.impl.shared.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.coroutines.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.feedback.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.remoteDev.util.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.lang.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/jetbrains.intellij.deps.java.atk.wrapper.linux.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.graph.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.polySymbols.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ml.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.netty.codec.http.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.diagnostic.telemetry.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.usageView.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.netty.codec.compression.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.netty.buffer.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.rd.community.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/externalProcess-rt.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.mvstore.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jvm.native.trusted.roots.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.io.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.serialization.cbor.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jcip.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.util.logging.api.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson.module.kotlin.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.serialization.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.rpc.topics.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.markdown.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.fastutil.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.analysis.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.cli.parser.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.java.websocket.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.analysis.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/annotations.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.xml.analysis.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.caffeine.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.util.ex.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/eclipse.lsp4j.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.util.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.snakeyaml.engine.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/javax.annotation-api.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jackson.jr.objects.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.collections.immutable.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.commercial.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.remote.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.graph.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.batik.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jgoodies.forms.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/jaxb-runtime.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.polySymbols.backend.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.util.codepoints.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.testIntegration.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.automaton.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ktor.network.tls.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.externalProcessAuthHelper.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.winp.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.jzlib.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.kotlinx.serialization.json.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.rpc.server.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.core.ui.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.lang3.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.commons.logging.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.imgscalr.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.eel.nioFs.impl.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.projectFrame.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/fleet.openmap.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/swingx.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.bouncy.castle.pgp.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.cglib.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.markdown.utils.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.editor.ex.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.ide.concurrency.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.ktor.io.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.lz4.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.core.jar">
+		<attributes>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="localIde"/>
+			<attribute name="artifactId" value="DB"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.bigquery.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.bigquery"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mysql.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.postgresbase.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.postgresbase"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.vcs.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mysqlbase.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mysqlbase.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.generic.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.common.core.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.core.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.core.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-api.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.dynamo.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.dynamo"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.mcp.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.db2.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.db2"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.util.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/intellij.libraries.maven.resolver.provider.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.couchbase.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mysqlbase.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mysqlbase.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/modules/intellij.json.frontend.split.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.libraries.jts.io.common.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.cockroach.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.cockroach"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.snowflake.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mssql.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mssql.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/libraries-misc-plugin/lib/modules/intellij.libraries.opencsv.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.libraries.opencsv"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.postgresgreenplumbase.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-images/lib/modules/intellij.platform.images.xdebugger.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.platform.images"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/intellij.json.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.hive.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.hive"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.redis.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.redis"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.derby.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.derby.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.cassandra.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.cassandra.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.db2.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.oracle.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.impl.jcef.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.vertica.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mssql.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.base.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.redis.backend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.redis.backend"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.cockroach.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.cockroach.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.connectivity.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.impl.bookmarks.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-builder-support.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.clickhouse.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.common.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.sql.common.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.h2.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.h2"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.impl.navbar.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.charts.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.charts"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mysqlbase.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.vertica.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.vertica"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.spellchecker.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.spellchecker"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.cliCommands.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.cliCommands"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-plugin/lib/modules/intellij.grid.scripting.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.grid.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/modules/intellij.json.structureView.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.couchbase.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.couchbase.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.ssh.ui.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.maria.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.maria"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.clickhouse.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-core-plugin/lib/modules/intellij.grid.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.grid.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.exasol.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.exasol"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.jdbcConsole.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.postgresbase.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mongo.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mongo.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.oracle.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.oracle.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.postgres.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.postgres.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.frontend.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-navbar-plugin/lib/modules/intellij.platform.navbar.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.navbar"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.connectivity.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-model-builder.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-util.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/libraries-misc-plugin/lib/modules/intellij.libraries.lucene.common.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.libraries.lucene.common"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-structuralSearch-plugin/lib/modules/intellij.platform.structuralSearch.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.structuralSearch"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mongo.sql.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mongo.sql"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.rpc.backend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.rpc.backend"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/modules/intellij.json.backend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.spark.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.spark"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.generic.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.sql92.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-plugin/lib/modules/intellij.grid.scripting.rt.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.grid.scripting.rt"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.greenplum.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.cloudExplorer.jba.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.log.graph.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.vcs.log.graph"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mongo.js.external.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.core.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.sql.core.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.bigquery.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.bigquery.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-plugin/lib/modules/intellij.grid.json.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.grid.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-connector-basic.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.backend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.backend"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.greenplum.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.greenplum"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.cassandra.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.cassandra"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.log.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.vcs.log"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.postgres.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.ssh.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.ai.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mongo.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mongo"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.jdbcConsole.shim.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.jdbcConsole.shim"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-core-plugin/lib/modules/intellij.grid.core.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.grid.core.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.derby.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.postgresgreenplumbase.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.postgresgreenplumbase"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.hivebase.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.hivebase"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.sybase.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.sybase"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.backend.core.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-model.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-plugin/lib/modules/intellij.grid.images.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.grid.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-images/lib/modules/intellij.platform.images.jcef.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.platform.images"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.frontend.split.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.redshift.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.redshift.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/libraries-misc-plugin/lib/modules/intellij.libraries.jettison.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.libraries.jettison"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.base.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-core-plugin/lib/modules/intellij.grid.csv.core.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.grid.csv.core.impl"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/modules/intellij.json.networknt.wrapper.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/tips-database-plugin.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.redshift.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-repository-metadata.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-plugin/lib/grid-plugin.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.grid.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.snowflake.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.plugin.frameworks.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-spi.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.sqlite.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-images/lib/modules/intellij.platform.images.copyright.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.platform.images"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.sqlite.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-navbar-plugin/lib/modules/intellij.platform.navbar.frontend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.navbar.frontend"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.hsql.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.hsql"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.copyright.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/intellij.platform.commercial.verifier.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.kernel.backend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.kernel.backend"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-testRunner-plugin/lib/modules/intellij.platform.testRunner.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.testRunner"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/java-aetherDependencyResolver-plugin.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/modules/intellij.java.aetherDependencyResolver.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.oracle.ex.coverage.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.vcs.impl.shared.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.vcs.impl.shared"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-transport-http.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-testRunner-plugin/lib/modules/intellij.platform.smRunner.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.smRunner"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/intellij.json.syntax.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-named-locks.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.backend.split.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/libraries-misc-plugin/lib/modules/intellij.libraries.xstream.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.libraries.xstream"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.sybase.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-transport-file.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.libraries.microba.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.libraries.microba"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/intellij.libraries.plexus.utils.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.h2.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.h2.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.dialects.mssql.ex.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.dialects.mssql.ex"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.trialPromotion.idesWithFreeTier.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-plugin/lib/modules/intellij.grid.charts.impl.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.grid.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-execution-serviceView-plugin/lib/modules/intellij.platform.execution.serviceView.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.execution.serviceView"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.frontend.core.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/database-plugin.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-structureView-plugin/lib/modules/intellij.platform.structureView.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.structureView"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.searchEverywhere.backend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.searchEverywhere.backend"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.impl.frontend.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.completionMlRanking.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.impl.common.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.database.impl.common"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.pro.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-core-plugin/lib/modules/intellij.grid.types.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.grid.types"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/grid-core-plugin/lib/modules/intellij.grid.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.grid"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/lib/intellij.platform.searchEverywhere.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledModule"/>
+			<attribute name="artifactId" value="intellij.platform.searchEverywhere"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/platform-images/lib/platform-images.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.platform.images"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/json/lib/modules/intellij.json.backend.regexp.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.modules.json"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/java-aetherDependencyResolver-plugin/lib/maven-resolver-provider.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="intellij.java.aetherDependencyResolver.plugin"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/wangyc/Applications/DataGrip.app/Contents/plugins/DatabaseTools/lib/modules/intellij.database.sql.intelliLang.jar">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="groupId" value="bundledPlugin"/>
+			<attribute name="artifactId" value="com.intellij.database"/>
+			<attribute name="version" value="DB-262.11879.103"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

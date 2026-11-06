@@ -1,0 +1,25 @@
+# Gradle / IntelliJ build output
+.gradle/
+build/
+out/
+*.iml
+
+# IDE
+.idea/
+*.iws
+*.ipr
+
+# OS
+.DS_Store
+
+# Local plugin sandbox
+build/idea-sandbox/
+
+# IntelliJ Platform Gradle cache (local IDE dependency cache)
+.intellijPlatform/
+# Gradle user home used in sandboxed/CI runs of this repo
+.gradle-user-home/
+# Home directory override for plugin verifier runs
+.home/
+# Plugin Verifier home (project-local)
+.pluginVerifier/

@@ -1,0 +1,54 @@
+<idea-plugin>
+    <id>com.example.tablestructure</id>
+    <name>Table Structure Viewer</name>
+    <version>0.1.0</version>
+    <vendor>example</vendor>
+
+    <description><![CDATA[
+        在编辑器标签页（editor tab）中以只读表格方式查看数据库表结构：
+        <ul>
+            <li>列：名称、类型、长度、精度、可空、默认值、主键/外键标记、注释</li>
+            <li>索引：名称、唯一性、函数索引、索引列</li>
+            <li>约束：主键 / 唯一约束及其列</li>
+            <li>外键：引用表、引用列、删除/更新规则</li>
+        </ul>
+        入口一：数据库对象树右键菜单 → “查看表结构”（不使用弹窗，使用普通编辑器标签页）。
+        <br/>
+        入口二：数据库对象树右键菜单 / 工具栏 → “对象总览”：列出该数据源的表、视图、序列、存储过程，
+        支持页面内模糊搜索（忽略大小写），双击表或视图可直接打开其结构。
+        <br/>
+        <b>注意</b>：在数据源属性中提高内省级别后，序列与存储过程才会出现在总览中。
+    ]]></description>
+
+    <idea-version since-build="262"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <!-- Database Tools and SQL（DataGrip / IntelliJ IDEA Ultimate 内置） -->
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="DataGripTableStructure"
+                  implementationClass="com.example.tablestructure.editor.TableStructureFileType"
+                  fieldName="INSTANCE"/>
+        <fileEditorProvider implementation="com.example.tablestructure.editor.TableStructureEditorProvider"/>
+        <fileEditorProvider implementation="com.example.tablestructure.editor.ObjectBrowserEditorProvider"/>
+    </extensions>
+
+    <actions>
+        <action id="TableStructure.OpenAction"
+                class="com.example.tablestructure.action.OpenTableStructureAction"
+                text="查看表结构"
+                description="在编辑器标签页中打开表结构（列 / 索引 / 约束 / 外键）">
+            <!-- 数据库对象树右键菜单（Database Tools and SQL 插件定义的静态组） -->
+            <add-to-group group-id="DatabaseViewPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt shift S"/>
+        </action>
+        <action id="TableStructure.OpenBrowserAction"
+                class="com.example.tablestructure.action.OpenObjectBrowserAction"
+                text="对象总览"
+                description="在编辑器标签页中列出该数据源的表、视图、序列、存储过程，可模糊搜索，双击查看结构">
+            <add-to-group group-id="DatabaseViewPopupMenu" anchor="after" relative-to-action="TableStructure.OpenAction"/>
+            <add-to-group group-id="DatabaseViewToolbar" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
