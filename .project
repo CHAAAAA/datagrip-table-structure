@@ -35,7 +35,7 @@
 	<variableList>
 		<variable>
 			<name>bspSchemaVersion</name>
-			<value>0.1.0</value>
+			<value>0.1.1</value>
 		</variable>
 	</variableList>
 </projectDescription>

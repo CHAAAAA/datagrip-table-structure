@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.example.tablestructure</id>
     <name>Table Structure Viewer</name>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <vendor>example</vendor>
 
     <description><![CDATA[
