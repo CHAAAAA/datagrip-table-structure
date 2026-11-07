@@ -34,6 +34,12 @@ java {
     }
 }
 
+tasks.jar {
+    from("LICENSE") {
+        into("META-INF")
+    }
+}
+
 // 现有自检使用 main 入口，独立于 JUnit 的 test 源集。
 val selfCheck = sourceSets.create("selfCheck") {
     compileClasspath += sourceSets.main.get().output + sourceSets.main.get().compileClasspath
@@ -71,8 +77,8 @@ intellijPlatform {
             sinceBuild = providers.gradleProperty("platformBuild")
         }
         vendor {
-            name = "example"
-            url = "https://example.com"
+            name = "CHAAAAA"
+            url = "https://github.com/CHAAAAA/datagrip-table-structure"
         }
     }
 

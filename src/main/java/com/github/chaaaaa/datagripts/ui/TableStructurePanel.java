@@ -75,7 +75,7 @@ public final class TableStructurePanel extends JPanel {
     /** 当前展示的结构快照（选中行 → 列 的映射要用）。 */
     @Nullable
     private TableStructure structure;
-    /** 生成 ALTER DDL 的回调；由编辑器注入。 */
+    /** 生成 Oracle ALTER DDL 的回调；由编辑器注入。 */
     @Nullable
     private Consumer<List<ColumnInfo>> alterDdlAction;
 
@@ -152,7 +152,7 @@ public final class TableStructurePanel extends JPanel {
     }
 
     /**
-     * 由编辑器注入「生成 ALTER DDL」逻辑：参数是选中的列。
+     * 由编辑器注入「生成 Oracle ALTER DDL」逻辑：参数是选中的列。
      * 未注入时列 Tab 没有这个菜单项。
      */
     public void setAlterDdlAction(@NotNull Consumer<List<ColumnInfo>> action) {
@@ -179,7 +179,7 @@ public final class TableStructurePanel extends JPanel {
 
     /**
      * 四张表都挂上复制能力；列 Tab 的第 0 列（{@code #}）是序号列：点它选整行，复制整行时跳过它。
-     * 列 Tab 的右键菜单在复制项之后追加「生成 ALTER DDL」。
+     * 列 Tab 的右键菜单在复制项之后追加「生成 Oracle ALTER DDL」。
      */
     private void installCopy() {
         installCopy(indexTable, indexModel, column -> false);
@@ -189,7 +189,7 @@ public final class TableStructurePanel extends JPanel {
     }
 
     /**
-     * 重建列 Tab 的右键菜单：复制项 + 「生成 ALTER DDL」。
+     * 重建列 Tab 的右键菜单：复制项 + 「生成 Oracle ALTER DDL」。
      *
      * <p>一个表只装一个 popup handler——复制和生成 DDL 共用同一个右键菜单，
      * 避免两条 MouseListener 各弹一个菜单。菜单项在弹出时由 update() 按选中行/列决定启用状态。</p>
@@ -197,7 +197,7 @@ public final class TableStructurePanel extends JPanel {
     private void rebuildColumnPopup() {
         DefaultActionGroup group = TableCopySupport.install(columnTable, columnModel, COLUMN_IS_ROW_HANDLE);
         group.add(Separator.getInstance());
-        group.add(new EdtAction("生成 ALTER DDL…", "生成新增选中列的 ALTER TABLE 语句（含注释）") {
+        group.add(new EdtAction("生成 Oracle ALTER DDL…", "生成 Oracle 新增选中列的 ALTER TABLE 语句（含注释）") {
             @Override
             public void actionPerformed(@NotNull AnActionEvent event) {
                 List<ColumnInfo> selected = selectedColumns();

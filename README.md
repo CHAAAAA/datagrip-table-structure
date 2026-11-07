@@ -1,14 +1,35 @@
 # Table Structure Viewer
 
-DataGrip 表结构查看插件，在编辑器标签页中展示表和视图的结构，并提供按 schema 浏览数据库对象的总览页面。当前以 Oracle 为主要使用场景。
+**English short description:** Read-only table and view structures, schema browsing, and Oracle ADD COLUMN SQL previews for DataGrip.
+
+**中文简述：** 在 DataGrip 中查看表和视图的只读结构、按 schema 浏览对象，并预览 Oracle 新增列 SQL。
+
+## English overview
+
+Table Structure Viewer adds read-only table and view structure tabs and a schema-based object browser to DataGrip. Inspect columns, data types, default values, comments, indexes, primary and unique keys, and foreign keys without leaving the editor area.
+
+- Browse tables, views, sequences, and stored routines by schema, with name search and object-type filters.
+- Copy individual cells or rows as tab-separated text.
+- For tables, open DataGrip's native Modify Table dialog, data editor, or generated CREATE SQL in a SQL console.
+- Preview and copy Oracle ADD COLUMN statements and column comments for selected columns. This preview always uses Oracle syntax; it does not adapt to other database dialects or execute SQL automatically.
+
+**The plugin UI is currently in Simplified Chinese.** In the Database tool window, right-click a table or view and choose **查看表结构** (View Table Structure). Choose **对象总览** (Object Overview) to browse a data source. In the Columns tab, select columns and choose **生成 Oracle ALTER DDL…** to preview their SQL.
+
+Requires DataGrip with Database Tools and SQL. Built and binary-compatibility checked against DataGrip **2026.2.6 (build 262)**; other IDE releases and database dialects have not been comprehensively tested. Structure data comes from DataGrip's introspected model. The overview refresh reloads that model; if objects are missing, check the selected schema, permissions, and introspection settings, refresh the data source in DataGrip, and then reload the overview.
+
+The structure viewer is read-only, but the native table tools can modify data or structure when you apply changes there. Generated SQL is not executed automatically. The Oracle selected-column preview skips identity, computed, and untyped columns with an explanatory SQL comment. Custom structure and overview tabs are not restored after an IDE restart.
+
+## 中文介绍
+
+Table Structure Viewer 为 DataGrip 提供表和视图的只读结构标签页，以及按 schema 浏览数据库对象的总览。可以查看列、数据类型、默认值、注释、索引、主键、唯一约束和外键，复制单元格或整行，并快捷打开 DataGrip 原生表操作工具。支持预览和复制 Oracle 新增列 SQL，生成的语句不会自动执行。**当前插件界面为简体中文。**
 
 ## 功能与使用
 
-在 Database 工具窗口中选中表，右键选择 **查看表结构**，或使用 `Ctrl+Alt+Shift+S`。同一张表会复用已有标签页。
+在 Database 工具窗口中选中表或视图，右键选择 **查看表结构**，或使用默认快捷键 `Ctrl+Alt+Shift+S`（可在 Keymap 中调整）。同一对象会复用已有标签页。
 
-| 页面 | 展示内容 |
+| 区域 / 标签页 | 展示内容 |
 | --- | --- |
-| 概要 | 表名、schema、注释、数据源、DBMS 版本及各类对象数量 |
+| 顶部概要 | 表名、schema、注释、数据源、DBMS 版本及各类对象数量 |
 | 列 | 类型、长度、精度、标度、非空、默认值、注释、主外键、自增、计算列 |
 | 索引 | 名称、唯一性、函数索引、涉及列、注释 |
 | 约束 | 主键、唯一约束及涉及列 |
@@ -16,11 +37,16 @@ DataGrip 表结构查看插件，在编辑器标签页中展示表和视图的�
 
 - **对象总览**：从数据库对象树右键菜单或工具栏打开，按 schema 展示表、视图、序列和存储过程，支持名称搜索与类型过滤。快速左键双击表或视图查看结构，双击间隔遵循系统设置；右键菜单提供 **复制单元格、复制行、查看表结构、修改表结构、查看数据、刷新**，其中修改表结构与查看数据仅对表可用。
 - **对象操作**：表结构页右上角的 **更多** 菜单提供 **修改表结构、查看数据、生成创建 SQL**，三项均仅对表可用，视图只支持查看结构。修改表结构打开 DataGrip 原生修改表对话框，查看数据打开原生数据编辑标签页；生成创建 SQL 由 DataGrip 生成 DDL 并打开原生 SQL 控制台，不会自动执行。
+- **只读范围**：插件的结构视图为只读；通过原生修改表对话框或数据编辑器应用修改时，仍可能更改数据库结构或数据。
 - **刷新**：表结构页通过 DataGrip 重新内省当前表，再加载模型；不支持单表内省时退回重读模型。数据源模型变化后也会自动刷新。对象总览的刷新会重新读取当前 schema 已内省的对象列表。
 - **复制**：支持复制单元格或整行；点击序号列可选中整行，整行复制使用制表符分隔并省略序号。
-- **生成 ALTER DDL**：在列页选择一列或多列，右键预览、复制 Oracle 新增列语句及列注释。插件不会自动执行这些语句。
+- **生成 Oracle ALTER DDL**：在列页选择一列或多列，右键预览、复制 Oracle 新增列语句及列注释。该预览始终使用 Oracle 语法，不自动适配其他数据库，也不自动执行语句。
 
-## 环境要求
+对象列表来自 DataGrip 已内省的模型。若缺少对象，请检查 schema、权限和内省设置，先在 DataGrip 刷新数据源，再刷新对象总览。序列和存储过程目前仅在总览中列出，不提供自定义结构标签页。
+
+## 开发环境要求
+
+以下环境用于从源码构建。安装已经打包的插件只需兼容的 DataGrip 环境，无需另外安装 Gradle 或配置项目目录。
 
 | 组件 | 版本或要求 |
 | --- | --- |
@@ -52,7 +78,7 @@ Windows PowerShell：
 
 当前插件版本为 **1.0.0**，构建后安装包为 `build/distributions/datagrip-table-structure-1.0.0.zip`，插件 ID 为 `com.github.chaaaaa.datagripts`。在 DataGrip 中依次打开 **Settings → Plugins → 齿轮菜单 → Install Plugin from Disk…**，选择安装包并重启。
 
-**旧版迁移**：旧插件 ID 为 `com.example.tablestructure`。新 ID 会被 DataGrip 识别为另一款插件，请先卸载旧版再安装，避免重复菜单和快捷键冲突。后续相同 ID 的更新可重复安装，卸载则在 Installed 列表中操作。
+如果此前安装过插件 ID 为 `com.example.tablestructure` 的旧包，请先卸载旧包，避免重复菜单和快捷键。当前插件保持 ID `com.github.chaaaaa.datagripts`，后续更新沿用同一安装身份。
 
 开发与兼容性检查（Windows 将 `./gradlew` 替换为 `.\gradlew.bat`，本地 SDK 覆盖同样适用）：
 
@@ -72,24 +98,6 @@ Windows PowerShell：
 
 沙箱 DataGrip 仍需要有效授权。普通 `buildPlugin` 产物未签名。
 
-## 参与开发
-
-克隆仓库后，将根目录作为 Gradle 项目导入 IDE，选择项目自带的 Gradle Wrapper 和 JDK 25。IDE 按本机环境生成 `.classpath`、`.project`、`.settings/` 等元数据，这些文件已忽略，不需要复制其他开发者的配置，也不要把个人安装路径、缓存、数据库连接配置或安装包加入提交。
-
-完成修改后运行统一检查：
-
-```bash
-./gradlew check buildPlugin verifyPluginProjectConfiguration verifyPluginStructure
-```
-
-Windows PowerShell 使用相同任务列表：
-
-```powershell
-.\gradlew.bat check buildPlugin verifyPluginProjectConfiguration verifyPluginStructure
-```
-
-修改目标 SDK 版本或平台依赖时，再运行 `verifyPlugin`。需要手工验证时，由开发者运行 `runIde`；沙箱中的数据源由开发者自行配置，不会复用仓库内的个人数据库配置。提交或提出 PR 时说明改动和实际验证结果，协作约定见 [AGENTS.md](AGENTS.md)。
-
 ## 可选的 macOS 本地自检
 
 标准自检入口是 Gradle `check`。下面三个脚本仅作为 macOS 上的离线快捷入口，使用已安装 DataGrip 的 JBR 和平台 JAR，无需 Gradle，也不会启动 IDE。默认安装位置为 `~/Applications/DataGrip.app`，可通过 `DATAGRIP_HOME` 覆盖；脚本中的 `.app/Contents` 目录结构不适用于 Windows / Linux。
@@ -107,6 +115,7 @@ Windows PowerShell 使用相同任务列表：
 ```text
 ├── AGENTS.md                         # AI 开发约定
 ├── README.md                         # 功能、构建与维护说明
+├── LICENSE                           # MIT 许可证
 ├── build.gradle.kts                  # 构建、平台依赖与插件配置
 ├── settings.gradle.kts
 ├── gradle.properties                 # 共享版本与构建参数

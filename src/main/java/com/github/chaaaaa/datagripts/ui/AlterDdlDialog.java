@@ -14,8 +14,7 @@ import java.awt.Font;
 import java.awt.datatransfer.StringSelection;
 
 /**
- * 「ALTER DDL」预览弹窗：先把语句给人看一眼，再一键复制。
- * 需求是“在测试库生成语句、到正式库执行”，所以不提供直接执行入口——避免误点。
+ * Oracle 新增列 DDL 的只读预览与复制，不提供执行入口。
  */
 public final class AlterDdlDialog {
 
@@ -33,7 +32,7 @@ public final class AlterDdlDialog {
         scroll.setPreferredSize(new Dimension(JBUI.scale(720), JBUI.scale(320)));
 
         DialogBuilder builder = project == null ? new DialogBuilder() : new DialogBuilder(project);
-        builder.setTitle("生成的 ALTER 语句（新增列）");
+        builder.setTitle("Oracle 新增列 DDL 预览");
         builder.setCenterPanel(scroll);
         builder.setPreferredFocusComponent(area);
         builder.addCloseButton();

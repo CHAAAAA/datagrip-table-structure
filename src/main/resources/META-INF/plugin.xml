@@ -1,29 +1,55 @@
 <idea-plugin>
     <id>com.github.chaaaaa.datagripts</id>
-    <vendor>example</vendor>
-
     <description><![CDATA[
-        Table Structure Viewer for DataGrip: browse database objects and table structures in editor tabs.
-        <br/>
-        在编辑器标签页（editor tab）中以只读表格方式查看数据库表结构：
+        Table Structure Viewer adds read-only table and view structure tabs and a schema-based object browser to DataGrip.
+        <p>The plugin UI is currently in Simplified Chinese.</p>
+        <h3>Features</h3>
         <ul>
-            <li>列：名称、类型、长度、精度、可空、默认值、注释、主键/外键标记</li>
-            <li>索引：名称、唯一性、函数索引、索引列</li>
-            <li>约束：主键 / 唯一约束及其列</li>
-            <li>外键：引用表、引用列、删除/更新规则</li>
+            <li>Inspect columns, data types, default values, comments, indexes, primary and unique keys, and foreign keys.</li>
+            <li>Browse tables, views, sequences, and stored routines by schema, with name search and object-type filters.</li>
+            <li>Open table or view structures with a left-button double-click. Copy cells or rows as tab-separated text.</li>
+            <li>For tables, open DataGrip's native Modify Table dialog, data editor, or generated CREATE SQL in a SQL console.</li>
+            <li>Preview and copy Oracle ADD COLUMN statements and column comments for selected columns.</li>
         </ul>
-        入口一：数据库对象树右键菜单 → “查看表结构”（不使用弹窗，使用普通编辑器标签页）。
-        表结构页面右上角“更多”菜单支持修改表结构、查看数据和生成创建 SQL，三项均仅对表可用，视图只支持查看结构。
-        修改表结构和查看数据分别打开 DataGrip 原生修改表对话框和数据编辑标签页；
-        创建 SQL 由 DataGrip 生成并打开原生 SQL 控制台，不会自动执行。
-        <br/>
-        入口二：数据库对象树右键菜单 / 工具栏 → “对象总览”：按 schema 列出表、视图、序列、存储过程，
-        支持页面内模糊搜索（忽略大小写）与 schema 切换（一次只查一个 schema）；
-        快速左键双击表或视图打开其结构，双击间隔遵循系统设置；右键菜单支持复制单元格、复制行、查看表结构、
-        修改表结构、查看数据和刷新，其中修改表结构与查看数据仅对表可用，刷新会重读当前 schema 已内省的对象列表。
-        <br/>
-        <b>注意</b>：在数据源属性中提高内省级别后，序列与存储过程才会出现在总览中。
+        <h3>Usage and requirements</h3>
+        <p>In the Database tool window, right-click a table or view and select “查看表结构” (View Table Structure).
+        Select “对象总览” (Object Overview) to browse a data source by schema.</p>
+        <p>Requires DataGrip with Database Tools and SQL. Built and binary-compatibility checked against DataGrip 2026.2.6 (build 262).
+        Other IDE releases and database dialects have not been comprehensively tested.</p>
+        <p>Structure data comes from DataGrip's introspected model. If objects are missing, check the selected schema,
+        permissions, and introspection settings, refresh the data source in DataGrip, and then reload the overview.</p>
+        <p>The selected-column DDL preview always uses Oracle syntax; it does not adapt to other database dialects.
+        Identity, computed, and untyped columns are skipped with an explanatory SQL comment. Generated SQL is not executed automatically.
+        The native table tools can modify data or structure when you apply changes there. Custom structure and overview tabs are not restored after an IDE restart.</p>
+        <h3>中文介绍</h3>
+        <p>Table Structure Viewer 为 DataGrip 提供表和视图的只读结构标签页，以及按 schema 浏览数据库对象的总览。当前插件界面为简体中文。</p>
+        <ul>
+            <li>查看列、数据类型、默认值、注释、索引、主键、唯一约束和外键。</li>
+            <li>按 schema 浏览表、视图、序列和存储过程，支持名称搜索和对象类型过滤。</li>
+            <li>快速左键双击表或视图打开结构；支持复制单元格，以及按制表符分隔复制整行。</li>
+            <li>为表提供 DataGrip 原生修改表对话框、数据编辑器和创建 SQL 控制台的快捷入口。</li>
+            <li>预览和复制选中列的 Oracle 新增列语句及列注释。</li>
+        </ul>
+        <p>在 Database 工具窗口右键选择“查看表结构”或“对象总览”即可使用。依赖 Database Tools and SQL，
+        已针对 DataGrip 2026.2.6（build 262）完成构建和二进制兼容性检查；其他 IDE 版本及数据库方言尚未全面验证。</p>
+        <p>结构信息来自 DataGrip 已内省的模型。若缺少对象，请检查 schema、权限和内省设置，先在 DataGrip 刷新数据源，再刷新对象总览。</p>
+        <p>选中列的 DDL 预览始终使用 Oracle 语法，不会自动适配其他数据库；自增列、计算列及缺少类型的列会跳过并附加说明。
+        生成的 SQL 不会自动执行；在原生表操作工具中应用修改可能更改数据或结构。结构和总览标签页暂不支持 IDE 重启后恢复。</p>
+        <p>Free software under the MIT License / 免费提供，采用 MIT 许可证。</p>
+        <p><a href="https://github.com/CHAAAAA/datagrip-table-structure">Source code / 源码</a>
+        · <a href="https://github.com/CHAAAAA/datagrip-table-structure/issues">Support and issue reports / 支持与反馈</a></p>
     ]]></description>
+
+    <change-notes><![CDATA[
+        <p>1.0.0</p>
+        <ul>
+            <li>Read-only table and view structure tabs with cell and row copying.</li>
+            <li>A schema-based object browser with search, type filters, and native table actions.</li>
+            <li>Oracle selected-column DDL previews and native CREATE SQL generation. UI in Simplified Chinese.</li>
+        </ul>
+        <p>中文：提供表和视图结构标签页、单元格与整行复制、按 schema 浏览和筛选对象、
+        DataGrip 原生表操作，以及 Oracle 选中列 DDL 预览。当前界面为简体中文。</p>
+    ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
     <!-- Database Tools and SQL（DataGrip / IntelliJ IDEA Ultimate 内置） -->

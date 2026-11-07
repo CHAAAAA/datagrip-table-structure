@@ -263,8 +263,8 @@ public final class ObjectBrowserPanel extends JPanel {
         } else if (getSelectedSchema() == null) {
             showStatus("没有可用的 schema。请确认数据源已连接并完成内省。");
         } else if (all.isEmpty()) {
-            showStatus("schema “" + getSelectedSchema() + "” 下没有表/视图/序列/存储过程。"
-                    + "若确实有对象，请提高数据源的内省级别后点击“刷新”。");
+            showStatus("schema “" + getSelectedSchema() + "” 的已内省模型中未找到表/视图/序列/存储过程。"
+                    + "请检查 schema、权限和内省设置，先在 DataGrip 刷新数据源，再刷新此列表。");
         } else {
             showStatus("schema “" + getSelectedSchema() + "” · 匹配 " + visible.size()
                     + " / 共 " + all.size() + " 个对象（快速左键双击打开结构，右键显示操作菜单）");
