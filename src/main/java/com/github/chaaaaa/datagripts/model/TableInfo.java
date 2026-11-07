@@ -13,6 +13,7 @@ public record TableInfo(
         @NotNull String dbmsName,
         @NotNull String dbmsVersion,
         @NotNull String kind,
+        boolean isTable,
         boolean temporary,
         boolean system,
         int columnCount,

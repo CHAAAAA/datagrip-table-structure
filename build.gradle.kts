@@ -15,8 +15,13 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        // macOS 路径指向 DataGrip.app/Contents，避免重复下载 IDE。
-        local(providers.gradleProperty("datagripPath").get())
+        // 默认下载固定版本 SDK；有本地安装时可通过 datagripPath 复用。
+        val localPath = providers.gradleProperty("datagripPath").orNull
+        if (localPath.isNullOrBlank()) {
+            datagrip(providers.gradleProperty("datagripVersion"))
+        } else {
+            local(localPath)
+        }
 
         bundledPlugin("com.intellij.database")
     }
@@ -73,8 +78,8 @@ intellijPlatform {
 
     pluginVerification {
         ides {
-            // 用本地 DataGrip 做插件验证，避免默认的 recommended() 去 Marketplace 查找 IDE
-            local(providers.gradleProperty("datagripPath").get())
+            // 复用当前构建使用的 SDK，保持本地覆盖与默认下载行为一致。
+            current()
         }
     }
 }

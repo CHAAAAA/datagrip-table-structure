@@ -22,11 +22,13 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -65,6 +67,7 @@ public final class ObjectBrowserPanel extends JPanel {
     private Consumer<String> schemaChangeAction = ignored -> { };
     private Consumer<ObjectEntry> openAction = ignored -> { };
     private Consumer<ObjectEntry> editAction = ignored -> { };
+    private Consumer<ObjectEntry> viewDataAction = ignored -> { };
     private boolean adjustingSchemaBox;
     private boolean hasOpenListener;
 
@@ -138,13 +141,34 @@ public final class ObjectBrowserPanel extends JPanel {
         if (!hasOpenListener) {
             hasOpenListener = true;
             table.addMouseListener(new MouseAdapter() {
+                private long previousClickTime;
+                private ObjectEntry previousEntry;
+
+                @Override
+                public void mousePressed(MouseEvent event) {
+                    if (!SwingUtilities.isLeftMouseButton(event) || event.isPopupTrigger() || event.isControlDown()) {
+                        previousEntry = null;
+                    }
+                }
+
                 @Override
                 public void mouseClicked(MouseEvent event) {
-                    if (event.getClickCount() != 2) {
+                    if (!SwingUtilities.isLeftMouseButton(event) || event.isPopupTrigger() || event.isControlDown()) {
+                        previousEntry = null;
                         return;
                     }
-                    ObjectEntry entry = selectedEntry();
-                    if (entry != null) {
+                    ObjectEntry entry = table.columnAtPoint(event.getPoint()) < 0
+                            ? null : entryAtRow(table.rowAtPoint(event.getPoint()));
+                    Object interval = Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
+                    long doubleClickInterval = interval instanceof Number number && number.longValue() > 0
+                            ? number.longValue() : 500;
+                    long elapsed = event.getWhen() - previousClickTime;
+                    boolean doubleClick = entry != null && entry == previousEntry && event.getClickCount() == 2
+                            && elapsed >= 0 && elapsed <= doubleClickInterval;
+                    previousClickTime = event.getWhen();
+                    previousEntry = entry;
+                    if (doubleClick) {
+                        previousEntry = null;
                         openAction.accept(entry);
                     }
                 }
@@ -152,9 +176,14 @@ public final class ObjectBrowserPanel extends JPanel {
         }
     }
 
-    /** 右键「编辑表结构」回调（表才有意义）。 */
+    /** 右键「修改表结构」回调（仅表）。 */
     public void setEditAction(@NotNull Consumer<ObjectEntry> action) {
         this.editAction = action;
+    }
+
+    /** 右键「查看数据」回调（仅表）。 */
+    public void setViewDataAction(@NotNull Consumer<ObjectEntry> action) {
+        this.viewDataAction = action;
     }
 
     public @NotNull JComponent getPreferredFocusedComponent() {
@@ -238,39 +267,27 @@ public final class ObjectBrowserPanel extends JPanel {
                     + "若确实有对象，请提高数据源的内省级别后点击“刷新”。");
         } else {
             showStatus("schema “" + getSelectedSchema() + "” · 匹配 " + visible.size()
-                    + " / 共 " + all.size() + " 个对象（双击打开结构，右键可编辑表结构）");
+                    + " / 共 " + all.size() + " 个对象（快速左键双击打开结构，右键显示操作菜单）");
         }
     }
 
     private @Nullable ObjectEntry selectedEntry() {
-        int row = table.getSelectedRow();
-        if (row < 0) {
+        int lead = table.getSelectionModel().getLeadSelectionIndex();
+        return entryAtRow(table.isRowSelected(lead) ? lead : table.getSelectedRow());
+    }
+
+    private @Nullable ObjectEntry entryAtRow(int row) {
+        if (row < 0 || row >= table.getRowCount()) {
             return null;
         }
         int modelRow = table.convertRowIndexToModel(row);
         return modelRow >= 0 && modelRow < visible.size() ? visible.get(modelRow) : null;
     }
 
-    /** 右键菜单：复制单元格 / 复制整行 + 编辑表结构（仅表）+ 打开结构 + 刷新。 */
+    /** 右键菜单：复制、查看结构、修改结构、查看数据、刷新。 */
     private void installPopup() {
         DefaultActionGroup group = TableCopySupport.install(table, model, column -> column == 0);
         group.add(Separator.getInstance());
-        group.add(new EdtAction("编辑表结构…", "用 DataGrip 原生「修改表」对话框修改列/索引/约束", AllIcons.Actions.EditSource) {
-            @Override
-            public void actionPerformed(@NotNull AnActionEvent event) {
-                ObjectEntry entry = selectedEntry();
-                if (entry != null) {
-                    editAction.accept(entry);
-                }
-            }
-
-            @Override
-            public void update(@NotNull AnActionEvent event) {
-                ObjectEntry entry = selectedEntry();
-                // 只有表能改结构：视图/序列/存储过程不该出现这个入口
-                event.getPresentation().setEnabledAndVisible(entry != null && ObjectEntry.GROUP_TABLE.equals(entry.group()));
-            }
-        });
         group.add(new EdtAction("查看表结构", "在编辑器标签页中打开选中的表/视图结构", AllIcons.Actions.Preview) {
             @Override
             public void actionPerformed(@NotNull AnActionEvent event) {
@@ -284,6 +301,36 @@ public final class ObjectBrowserPanel extends JPanel {
             public void update(@NotNull AnActionEvent event) {
                 ObjectEntry entry = selectedEntry();
                 event.getPresentation().setEnabledAndVisible(entry != null && entry.tableLike());
+            }
+        });
+        group.add(new EdtAction("修改表结构", "用 DataGrip 原生「修改表」对话框修改列/索引/约束", AllIcons.Actions.EditSource) {
+            @Override
+            public void actionPerformed(@NotNull AnActionEvent event) {
+                ObjectEntry entry = selectedEntry();
+                if (entry != null) {
+                    editAction.accept(entry);
+                }
+            }
+
+            @Override
+            public void update(@NotNull AnActionEvent event) {
+                ObjectEntry entry = selectedEntry();
+                event.getPresentation().setEnabledAndVisible(entry != null && ObjectEntry.GROUP_TABLE.equals(entry.group()));
+            }
+        });
+        group.add(new EdtAction("查看数据", "打开 DataGrip 原生数据编辑标签页") {
+            @Override
+            public void actionPerformed(@NotNull AnActionEvent event) {
+                ObjectEntry entry = selectedEntry();
+                if (entry != null) {
+                    viewDataAction.accept(entry);
+                }
+            }
+
+            @Override
+            public void update(@NotNull AnActionEvent event) {
+                ObjectEntry entry = selectedEntry();
+                event.getPresentation().setEnabledAndVisible(entry != null && ObjectEntry.GROUP_TABLE.equals(entry.group()));
             }
         });
         group.add(Separator.getInstance());

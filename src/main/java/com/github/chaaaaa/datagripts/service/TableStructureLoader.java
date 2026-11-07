@@ -17,6 +17,7 @@ import com.intellij.database.model.DataType;
 import com.intellij.database.types.DasType;
 import com.intellij.database.model.MultiRef;
 import com.intellij.database.model.NameVersion;
+import com.intellij.database.model.ObjectKind;
 import com.intellij.database.psi.DbDataSource;
 import com.intellij.database.psi.DbTable;
 import com.intellij.database.util.DasUtil;
@@ -68,6 +69,7 @@ public final class TableStructureLoader {
                 dbms == null ? "" : emptyIfNull(dbms.getDisplayName()),
                 databaseVersion == null ? "" : emptyIfNull(databaseVersion.version),
                 table.getKind() == null ? "" : emptyIfNull(table.getKind().getPresentableName()),
+                table.getKind() == ObjectKind.TABLE,
                 table.isTemporary(),
                 table.isSystem(),
                 columns.size(),

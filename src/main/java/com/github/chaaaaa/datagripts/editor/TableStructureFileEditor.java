@@ -1,5 +1,6 @@
 package com.github.chaaaaa.datagripts.editor;
 
+import com.github.chaaaaa.datagripts.action.TableActionBridge;
 import com.github.chaaaaa.datagripts.model.ColumnInfo;
 import com.github.chaaaaa.datagripts.model.TableStructure;
 import com.github.chaaaaa.datagripts.service.AlterDdlGenerator;
@@ -9,6 +10,7 @@ import com.github.chaaaaa.datagripts.ui.AlterDdlDialog;
 import com.github.chaaaaa.datagripts.ui.TableStructurePanel;
 import com.intellij.database.psi.DbPsiFacade;
 import com.intellij.database.psi.DbTable;
+import com.intellij.database.model.ObjectKind;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.application.ReadAction;
@@ -28,6 +30,7 @@ import javax.swing.JComponent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * 表结构查看器的编辑器实现：一个 {@link FileEditor}，内容是一个 Swing 面板（{@link TableStructurePanel}），
@@ -51,6 +54,8 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
     private volatile boolean disposed;
     @Nullable
     private CancellablePromise<TableStructure> currentLoad;
+    @Nullable
+    private CancellablePromise<DbTable> currentAction;
     /** 最近一次成功加载的结构（生成 ALTER DDL 时要取限定表名）。只在 EDT 读写。 */
     @Nullable
     private TableStructure structure;
@@ -60,9 +65,47 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
         this.file = file;
         this.panel.setRefreshAction(this::refreshFromDatabase);
         this.panel.setAlterDdlAction(columns -> showAlterDdl(columns));
+        this.panel.setTableActions(
+                () -> runTableAction(table -> TableActionBridge.open(project, table), "修改表结构"),
+                () -> runTableAction(table -> TableActionBridge.openData(project, table), "查看数据"),
+                () -> runTableAction(table -> TableActionBridge.openCreateSql(project, table), "生成创建 SQL"));
         this.connection = project.getMessageBus().connect(this);
         this.connection.subscribe(DbPsiFacade.TOPIC, (DbPsiFacade.Listener) dataSource -> refresh());
         refresh();
+    }
+
+    private void runTableAction(@NotNull Predicate<DbTable> action, @NotNull String name) {
+        if (disposed) {
+            return;
+        }
+        if (currentAction != null) {
+            currentAction.cancel();
+        }
+        CancellablePromise<DbTable> promise = ReadAction.nonBlocking(() -> {
+                    DbTable table = file.getTablePointer().getElement();
+                    if (table == null || !table.isValid()) {
+                        throw new IllegalStateException("表对象已失效，请刷新后重试");
+                    }
+                    if (table.getKind() != ObjectKind.TABLE) {
+                        throw new IllegalStateException("此操作仅支持表");
+                    }
+                    return table;
+                })
+                .inSmartMode(project)
+                .expireWith(this)
+                .submit(AppExecutorUtil.getAppExecutorService());
+        currentAction = promise;
+        promise.onSuccess(table -> ApplicationManager.getApplication().invokeLater(() -> {
+                    if (!disposed && currentAction == promise && !action.test(table)) {
+                        panel.showMessage("无法" + name + "：对象可能不可用，或原生动作当前不支持此操作。");
+                    }
+                }, ModalityState.any()))
+                .onError(error -> ApplicationManager.getApplication().invokeLater(() -> {
+                    if (!disposed && currentAction == promise) {
+                        panel.showMessage("无法" + name + "：" + (error == null || error.getMessage() == null
+                                ? "未知错误" : error.getMessage()));
+                    }
+                }, ModalityState.any()));
     }
 
     /**
@@ -127,14 +170,14 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
         currentLoad = promise;
         promise.onSuccess(loaded -> ApplicationManager.getApplication()
                         .invokeLater(() -> {
-                            if (!disposed) {
+                            if (!disposed && promise == currentLoad) {
                                 structure = loaded;
                                 panel.showStructure(loaded);
                             }
                         }, ModalityState.any()))
                 .onError(error -> ApplicationManager.getApplication()
                         .invokeLater(() -> {
-                            if (!disposed) {
+                            if (!disposed && promise == currentLoad) {
                                 panel.showError(error == null || error.getMessage() == null
                                         ? "未知错误"
                                         : error.getMessage());
@@ -217,6 +260,10 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
         if (currentLoad != null) {
             currentLoad.cancel();
             currentLoad = null;
+        }
+        if (currentAction != null) {
+            currentAction.cancel();
+            currentAction = null;
         }
         connection.disconnect();
     }

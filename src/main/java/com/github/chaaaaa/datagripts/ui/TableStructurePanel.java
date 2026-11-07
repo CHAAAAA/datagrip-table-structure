@@ -8,6 +8,7 @@ import com.github.chaaaaa.datagripts.model.TableInfo;
 import com.github.chaaaaa.datagripts.model.TableStructure;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.actionSystem.ActionPlaces;
+import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.Separator;
@@ -35,7 +36,7 @@ import java.util.function.IntPredicate;
 /**
  * 表结构查看器主面板：
  * <ul>
- *   <li>顶部：表总体信息 + 刷新按钮 + 状态栏</li>
+ *   <li>顶部：表总体信息 + 操作菜单 + 刷新按钮 + 状态栏</li>
  *   <li>中间：列 / 索引 / 约束 / 外键 四个 Tab，每个 Tab 是一个只读表格</li>
  * </ul>
  * 只做渲染，不做任何数据库模型访问（模型访问在 {@code TableStructureLoader} 中、读锁内完成）。
@@ -48,9 +49,9 @@ public final class TableStructurePanel extends JPanel {
     private static final int TAB_FOREIGN_KEYS = 3;
 
     private static final String[] COLUMN_HEADERS = {
-            "#", "列名", "类型", "长度", "精度", "标度", "非空", "默认值", "主键", "外键", "自增", "计算列", "注释"
+            "#", "列名", "类型", "长度", "精度", "标度", "非空", "默认值", "注释", "主键", "外键", "自增", "计算列"
     };
-    private static final int[] COLUMN_WIDTHS = {40, 160, 170, 60, 60, 60, 55, 140, 55, 55, 55, 65, 300};
+    private static final int[] COLUMN_WIDTHS = {40, 160, 170, 60, 60, 60, 55, 140, 300, 55, 55, 55, 65};
     /** 列 Tab 中需要按数字右对齐的下标：# / 长度 / 精度 / 标度。 */
     private static final int[] COLUMN_RIGHT_ALIGNED = {0, 3, 4, 5};
     /** 列 Tab 的序号列：点它选中整行，复制整行时跳过。 */
@@ -68,6 +69,7 @@ public final class TableStructurePanel extends JPanel {
     private final JBLabel infoLabel = new JBLabel();
     private final JBLabel statusLabel = new JBLabel();
     private final JButton refreshButton = new JButton("刷新", AllIcons.Actions.Refresh);
+    private final JButton moreButton = new JButton("更多 ▾");
     private final JBTabbedPane tabs = new JBTabbedPane();
 
     /** 当前展示的结构快照（选中行 → 列 的映射要用）。 */
@@ -96,7 +98,11 @@ public final class TableStructurePanel extends JPanel {
 
         JPanel header = new JPanel(new BorderLayout(8, 0));
         header.add(infoLabel, BorderLayout.CENTER);
-        header.add(refreshButton, BorderLayout.EAST);
+        JPanel actions = new JPanel(new BorderLayout(6, 0));
+        actions.add(moreButton, BorderLayout.WEST);
+        actions.add(refreshButton, BorderLayout.EAST);
+        moreButton.setVisible(false);
+        header.add(actions, BorderLayout.EAST);
 
         JPanel top = new JPanel(new BorderLayout());
         top.add(header, BorderLayout.CENTER);
@@ -117,6 +123,32 @@ public final class TableStructurePanel extends JPanel {
     /** 由编辑器注入刷新逻辑（重新读取 DataGrip 模型）。 */
     public void setRefreshAction(@NotNull Runnable action) {
         refreshButton.addActionListener(event -> action.run());
+    }
+
+    public void setTableActions(@NotNull Runnable modify, @NotNull Runnable viewData,
+                                @NotNull Runnable createSql) {
+        DefaultActionGroup group = new DefaultActionGroup(
+                tableAction("修改表结构", "打开 DataGrip 原生修改表对话框", modify),
+                tableAction("查看数据", "打开 DataGrip 原生数据编辑标签页", viewData),
+                tableAction("生成创建 SQL", "生成创建 SQL 并打开原生 SQL 控制台", createSql));
+        moreButton.addActionListener(event -> ActionManager.getInstance()
+                .createActionPopupMenu(ActionPlaces.UNKNOWN, group)
+                .getComponent().show(moreButton, 0, moreButton.getHeight()));
+    }
+
+    private @NotNull EdtAction tableAction(@NotNull String text, @NotNull String description,
+                                          @NotNull Runnable action) {
+        return new EdtAction(text, description) {
+            @Override
+            public void actionPerformed(@NotNull AnActionEvent event) {
+                action.run();
+            }
+
+            @Override
+            public void update(@NotNull AnActionEvent event) {
+                event.getPresentation().setEnabled(moreButton.isEnabled());
+            }
+        };
     }
 
     /**
@@ -195,13 +227,19 @@ public final class TableStructurePanel extends JPanel {
     public void showLoading() {
         showStatus("正在加载表结构…");
         refreshButton.setEnabled(false);
+        moreButton.setEnabled(false);
         setBusy(true);
     }
 
     public void showError(@NotNull String message) {
         showStatus("加载失败：" + message);
         refreshButton.setEnabled(true);
+        moreButton.setEnabled(false);
         setBusy(false);
+    }
+
+    public void showMessage(@NotNull String message) {
+        showStatus(message);
     }
 
     /** 展示一份新的结构快照（必须在 EDT 调用）。 */
@@ -209,6 +247,8 @@ public final class TableStructurePanel extends JPanel {
         this.structure = structure;
         TableInfo info = structure.table();
         infoLabel.setText(buildInfoHtml(info));
+        moreButton.setVisible(info.isTable());
+        moreButton.setEnabled(info.isTable());
 
         tabs.setTitleAt(TAB_COLUMNS, "列 (" + structure.columns().size() + ")");
         tabs.setTitleAt(TAB_INDEXES, "索引 (" + structure.indexes().size() + ")");
@@ -246,11 +286,11 @@ public final class TableStructurePanel extends JPanel {
                     number(column.scale()),
                     column.notNull() ? "是" : "",
                     column.defaultValue(),
+                    column.comment(),
                     column.primaryKey() ? "是" : "",
                     column.foreignKey() ? "是" : "",
                     column.autoGenerated() ? "是" : "",
-                    column.computed() ? "是" : "",
-                    column.comment()
+                    column.computed() ? "是" : ""
             });
         }
         return rows;

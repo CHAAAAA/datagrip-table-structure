@@ -101,7 +101,7 @@ public final class TableCopySupport {
                         event.getPresentation().setEnabled(provider.cellOrWholeRowText() != null);
                     }
                 },
-                new EdtAction("复制整行", "复制选中行的全部列（制表符分隔，不含序号）") {
+                new EdtAction("复制行", "复制选中行的全部列（制表符分隔，不含序号）") {
                     @Override
                     public void actionPerformed(@NotNull AnActionEvent event) {
                         provider.copy(provider.rowText());

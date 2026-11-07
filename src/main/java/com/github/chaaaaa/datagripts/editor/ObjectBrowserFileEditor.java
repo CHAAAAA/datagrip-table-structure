@@ -1,11 +1,10 @@
 package com.github.chaaaaa.datagripts.editor;
 
-import com.github.chaaaaa.datagripts.action.ModifyTableBridge;
+import com.github.chaaaaa.datagripts.action.TableActionBridge;
 import com.github.chaaaaa.datagripts.action.TableStructureOpener;
 import com.github.chaaaaa.datagripts.model.ObjectEntry;
 import com.github.chaaaaa.datagripts.service.ObjectBrowserLoader;
 import com.github.chaaaaa.datagripts.ui.ObjectBrowserPanel;
-import com.intellij.database.model.DasObject;
 import com.intellij.database.psi.DbDataSource;
 import com.intellij.database.psi.DbElement;
 import com.intellij.database.psi.DbPsiFacade;
@@ -56,6 +55,7 @@ public final class ObjectBrowserFileEditor extends UserDataHolderBase implements
         this.panel.setRefreshAction(this::refresh);
         this.panel.setOpenAction(this::openEntry);
         this.panel.setEditAction(this::editTable);
+        this.panel.setViewDataAction(this::viewData);
         this.panel.setSchemaChangeAction(this::switchSchema);
         this.connection = project.getMessageBus().connect(this);
         this.connection.subscribe(DbPsiFacade.TOPIC, (DbPsiFacade.Listener) dataSource -> refresh());
@@ -107,7 +107,7 @@ public final class ObjectBrowserFileEditor extends UserDataHolderBase implements
                         }, ModalityState.any()))
                 .onError(error -> ApplicationManager.getApplication()
                         .invokeLater(() -> {
-                            if (!disposed) {
+                            if (!disposed && promise == currentLoad) {
                                 panel.showError(error == null || error.getMessage() == null
                                         ? "未知错误"
                                         : error.getMessage());
@@ -151,21 +151,37 @@ public final class ObjectBrowserFileEditor extends UserDataHolderBase implements
         resolveTable(entry, table -> TableStructureOpener.open(project, table));
     }
 
-    /** 右键「编辑表结构」：转交给 DataGrip 原生「修改表…」对话框。 */
+    /** 右键「修改表结构」：转交给 DataGrip 原生「修改表…」对话框。 */
     private void editTable(@NotNull ObjectEntry entry) {
         if (!ObjectEntry.GROUP_TABLE.equals(entry.group())) {
             panel.showMessage("只能编辑表的结构，“" + entry.name() + "”是" + entry.group());
             return;
         }
         resolveTable(entry, table -> {
-            if (!ModifyTableBridge.open(project, table)) {
+            if (!TableActionBridge.open(project, table)) {
                 panel.showError("无法打开「修改表」对话框：对象可能只读、正在导入，或原生修改动作不可用。");
+            }
+        });
+    }
+
+    /** 右键「查看数据」：打开 DataGrip 原生数据编辑标签页。 */
+    private void viewData(@NotNull ObjectEntry entry) {
+        if (!ObjectEntry.GROUP_TABLE.equals(entry.group())) {
+            panel.showMessage("只能查看表的数据，“" + entry.name() + "”是" + entry.group());
+            return;
+        }
+        resolveTable(entry, table -> {
+            if (!TableActionBridge.openData(project, table)) {
+                panel.showError("无法打开数据标签页：对象可能已失效，或原生查看数据动作不可用。");
             }
         });
     }
 
     /** 把总览行里的 DasObject 解析成 DbTable，再回到 EDT 执行 {@code onTable}。 */
     private void resolveTable(@NotNull ObjectEntry entry, @NotNull Consumer<DbTable> onTable) {
+        if (disposed) {
+            return;
+        }
         // shortcut: 总览行只缓存 DasObject，用到时才解析成 DbElement（省一次为全库对象建指针）；
         // 若模型已被清理，findElement 返回 null，重开总览即可。
         ReadAction.nonBlocking(() -> {

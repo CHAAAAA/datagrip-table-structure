@@ -3,18 +3,24 @@
     <vendor>example</vendor>
 
     <description><![CDATA[
+        Table Structure Viewer for DataGrip: browse database objects and table structures in editor tabs.
+        <br/>
         在编辑器标签页（editor tab）中以只读表格方式查看数据库表结构：
         <ul>
-            <li>列：名称、类型、长度、精度、可空、默认值、主键/外键标记、注释</li>
+            <li>列：名称、类型、长度、精度、可空、默认值、注释、主键/外键标记</li>
             <li>索引：名称、唯一性、函数索引、索引列</li>
             <li>约束：主键 / 唯一约束及其列</li>
             <li>外键：引用表、引用列、删除/更新规则</li>
         </ul>
         入口一：数据库对象树右键菜单 → “查看表结构”（不使用弹窗，使用普通编辑器标签页）。
+        表结构页面右上角“更多”菜单支持修改表结构、查看数据和生成创建 SQL，三项均仅对表可用，视图只支持查看结构。
+        修改表结构和查看数据分别打开 DataGrip 原生修改表对话框和数据编辑标签页；
+        创建 SQL 由 DataGrip 生成并打开原生 SQL 控制台，不会自动执行。
         <br/>
         入口二：数据库对象树右键菜单 / 工具栏 → “对象总览”：按 schema 列出表、视图、序列、存储过程，
         支持页面内模糊搜索（忽略大小写）与 schema 切换（一次只查一个 schema）；
-        双击表或视图打开其结构，右键表可“编辑表结构”（调用 DataGrip 原生“修改表”对话框）。
+        快速左键双击表或视图打开其结构，双击间隔遵循系统设置；右键菜单支持复制单元格、复制行、查看表结构、
+        修改表结构、查看数据和刷新，其中修改表结构与查看数据仅对表可用，刷新会重读当前 schema 已内省的对象列表。
         <br/>
         <b>注意</b>：在数据源属性中提高内省级别后，序列与存储过程才会出现在总览中。
     ]]></description>
@@ -43,7 +49,7 @@
         <action id="TableStructure.OpenBrowserAction"
                 class="com.github.chaaaaa.datagripts.action.OpenObjectBrowserAction"
                 text="对象总览"
-                description="在编辑器标签页中按 schema 列出表、视图、序列、存储过程，可搜索、可切换 schema，双击查看结构、右键编辑表结构">
+                description="在编辑器标签页中按 schema 浏览和搜索对象，快速左键双击查看结构，右键复制、修改表结构、查看数据或刷新">
             <add-to-group group-id="DatabaseViewPopupMenu" anchor="after" relative-to-action="TableStructure.OpenAction"/>
             <add-to-group group-id="DatabaseViewToolbar" anchor="last"/>
         </action>
