@@ -23,5 +23,5 @@ CP="${CP%:}"
 rm -rf "$OUT" && mkdir -p "$OUT"
 "$JAVAC" -proc:none -d "$OUT" -cp "$CP" \
   $(find "$ROOT/src/main/java" -name '*.java') \
-  $(find "$ROOT/scripts/selfcheck" -name '*.java')
-"$JAVA" -cp "$OUT:$CP" com.example.tablestructure.editor.PickSchemaCheck
+  "$ROOT/src/selfCheck/java/com/github/chaaaaa/datagripts/editor/PickSchemaCheck.java"
+"$JAVA" -cp "$OUT:$CP" com.github.chaaaaa.datagripts.editor.PickSchemaCheck

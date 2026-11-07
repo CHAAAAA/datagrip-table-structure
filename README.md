@@ -1,165 +1,115 @@
-# Table Structure Viewer（DataGrip 插件）
+# Table Structure Viewer
 
-在 **DataGrip 编辑器标签页（editor tab）** 中以只读表格方式查看数据库表结构 —— 不使用弹窗。
+DataGrip 表结构查看插件，在编辑器标签页中展示表和视图的结构，并提供按 schema 浏览数据库对象的总览页面。当前以 Oracle 为主要使用场景。
 
-- 目标环境：**DataGrip 2026.2.6**（build `DB-262.10968.148`），依赖内置 Database Tools and SQL 插件（`com.intellij.database`）
-- 入口一：数据库对象树右键菜单 → **查看表结构**（快捷键 `Ctrl+Alt+Shift+S`）
-- 入口二：数据库对象树右键菜单 / 工具栏 → **对象总览**：
-  - **按 schema 查看**：顶部 schema 下拉框切换，一次只查一个 schema 的对象（默认跟随连接当前 schema）
-  - 列出所选中 schema 下的表、视图、序列、存储过程，页面内模糊搜索（忽略大小写）+ 类型过滤
-  - 双击表或视图打开其结构
-  - **右键表 → 编辑表结构…**：调用 DataGrip 原生「修改表」对话框（改列/索引/约束并预览 DDL）
-- 内容：
-  - 顶部概要：表名 / schema / 注释 / 数据源 / DBMS 版本 / 列·索引·约束·外键数量
-  - **列**：序号、列名、类型、长度、精度、标度、非空、默认值、主键、外键、自增、计算列、注释
-  - **索引**：索引名、唯一、函数索引、索引列、注释
-  - **约束**：主键 / 唯一约束及其列
-  - **外键**：外键名、列、引用表、引用列、ON DELETE / ON UPDATE、延迟性
+## 功能与使用
 
-完整设计与取舍：[docs/实现方案.md](docs/实现方案.md)
+在 Database 工具窗口中选中表，右键选择 **查看表结构**，或使用 `Ctrl+Alt+Shift+S`。同一张表会复用已有标签页。
 
----
+| 页面 | 展示内容 |
+| --- | --- |
+| 概要 | 表名、schema、注释、数据源、DBMS 版本及各类对象数量 |
+| 列 | 类型、长度、精度、标度、非空、默认值、主外键、自增、计算列、注释 |
+| 索引 | 名称、唯一性、函数索引、涉及列、注释 |
+| 约束 | 主键、唯一约束及涉及列 |
+| 外键 | 本表列、引用表与列、删除和更新规则、延迟性 |
 
-## 目录结构
-
-```
-├── build.gradle.kts / settings.gradle.kts / gradle.properties
-├── scripts/compile-check.sh        # 无 Gradle 时的编译自检（JBR 25 + 真实平台 jar）
-├── gradle/wrapper/gradle-wrapper.properties
-├── docs/
-│   ├── 实现方案.md                 # 设计方案（架构/API/UI/步骤/风险）
-│   └── research/                   # 本机 DataGrip 2026.2.6 的 API/机制取证
-│       ├── gradle-and-platform-setup.md  # Gradle/平台构建实测（含 14 个坑）
-│       ├── editor-tab-mechanics.md       # 编辑器 tab / FileEditorProvider / 自定义 VFS 等（1000+ 行）
-│       └── snippets/                     # 可编译的备选实现（自定义 VFS 重启恢复）
-└── src/main/
-    ├── java/com/example/tablestructure/
-    │   ├── action/                 # 菜单动作 + 打开 tab（含对象总览）
-    │   ├── editor/                 # FileType / VirtualFile / FileEditorProvider / FileEditor / Service
-    │   ├── model/                  # 不可变 DTO
-    │   ├── service/                # Das* 模型 → DTO
-    │   └── ui/                     # 只读表格模型 + 面板
-    └── resources/META-INF/plugin.xml
-```
+- **对象总览**：从数据库对象树右键菜单或工具栏打开，按 schema 展示表、视图、序列和存储过程，支持名称搜索与类型过滤。双击表或视图查看结构；右键表选择 **编辑表结构…** 可打开 DataGrip 原生修改表对话框。
+- **刷新**：表结构页通过 DataGrip 重新内省当前表，再加载模型；不支持单表内省时退回重读模型。数据源模型变化后也会自动刷新。对象总览的刷新会重新读取已内省的模型。
+- **复制**：支持复制单元格或整行；点击序号列可选中整行，整行复制使用制表符分隔并省略序号。
+- **生成 ALTER DDL**：在列页选择一列或多列，右键预览、复制 Oracle 新增列语句及列注释。插件不会自动执行这些语句。
 
 ## 环境要求
 
-| 依赖 | 版本 | 说明 |
-|------|------|------|
-| DataGrip | 2026.2.6 | 本机安装路径默认 `/Users/wangyc/Applications/DataGrip.app`，`gradle.properties` 的 `datagripPath` 需指向 `DataGrip.app/Contents`（Gradle 的 `local()` 要求） |
-| JDK | 25 | 2026.2 平台字节码为 Java 25；可直接用 DataGrip 自带 JBR：`Contents/jbr/Contents/Home` |
-| Gradle | 9.8.2 | 本机未安装、`~/.gradle` 也不存在；首次构建会下载 Gradle/插件依赖（需网络），见下方 wrapper 生成方法 |
-| IntelliJ Platform Gradle Plugin | 2.19.0 | `build.gradle.kts` 已声明 |
+| 组件 | 版本或要求 |
+| --- | --- |
+| DataGrip | 2026.2.6，build `DB-262.10968.148` |
+| Java | JDK 25，可使用 DataGrip 自带 JBR |
+| Gradle | 9.8.2，仓库已包含 Wrapper，无需另行安装 |
+| IntelliJ Platform Gradle Plugin | 2.19.0 |
+| 平台依赖 | DataGrip 内置 Database Tools and SQL（`com.intellij.database`） |
 
-## 构建与运行（Gradle）
+构建使用本地 DataGrip 安装。首次运行 Wrapper 和解析未缓存的构建依赖需要网络；不会额外下载目标 IDE。
 
-```bash
-# 1) 首次生成 wrapper：任选其一
-#    a) 本机已有 Gradle 9.8.2：gradle wrapper --gradle-version 9.8.2 --distribution-type bin
-#    b) 用 IntelliJ IDEA / DataGrip 打开工程，让 IDE 生成 wrapper
-#    c) 临时下载 Gradle：
-#       curl -L -o /tmp/gradle-9.8.2-bin.zip https://services.gradle.org/distributions/gradle-9.8.2-bin.zip
-#       unzip -q /tmp/gradle-9.8.2-bin.zip -d /tmp
-#       /tmp/gradle-9.8.2/bin/gradle wrapper --gradle-version 9.8.2 --distribution-type bin
+## 构建与安装
 
-# 2) 启动带插件的沙箱 DataGrip，手工验证
-./gradlew runIde
-
-# 3) 打插件安装包 -> build/distributions/datagrip-table-structure-0.1.0.zip
-./gradlew buildPlugin
-
-# 4) 兼容性检查（针对目标平台）
-./gradlew verifyPlugin
-```
-
-安装：DataGrip → `Settings | Plugins | ⚙ | Install Plugin from Disk…` 选择上面的 zip，重启。
-
-> **构建状态**：本机无 Gradle、网络极慢，未实际执行 Gradle 构建；构建脚本依据官方源码/文档编写
-> （见 [docs/research/gradle-and-platform-setup.md](docs/research/gradle-and-platform-setup.md)），
-> Java 源码已用真实平台 jar 编译通过（见下节）。
->
-> 沙箱 `runIde` 需要 DataGrip 授权；插件开发自用通常可直接试用。CI 请用
-> CI 或无本地安装时，用 `datagrip("2026.2.6")` 替代 `local(...)`
-> （DataGrip 没有 Maven 坐标，`useInstaller` 默认 `true`，会从 JetBrains CDN 下载安装包）。
-
-
-## 安装到本地 DataGrip（2026.2.x）
-
-构建产物：`build/distributions/datagrip-table-structure-0.1.0.zip`（plugin id `com.example.tablestructure`，
-`since-build=262`，无 `until-build`）。
-
-**方式一：IDE 安装（推荐）**
-
-1. DataGrip → `Settings…`（macOS `⌘,`）→ `Plugins`
-2. 点齿轮 ⚙ → `Install Plugin from Disk…`
-3. 选择 `build/distributions/datagrip-table-structure-0.1.0.zip` → `Restart IDE`
-4. 验证：`Settings → Plugins → Installed` 中能看到 **Table Structure Viewer**
-
-**方式二：命令行解压到插件目录（适合脚本化）**
+以下命令在项目根目录执行，以 macOS 为例。将 `DATAGRIP_HOME` 改为实际安装位置：
 
 ```bash
-PLUGINS="$HOME/Library/Application Support/JetBrains/DataGrip2026.2/plugins"
-cd "$PLUGINS"
-unzip -q /Users/wangyc/Documents/project/my/datagrip/build/distributions/datagrip-table-structure-0.1.0.zip
-# 重启 DataGrip
+export DATAGRIP_HOME="$HOME/Applications/DataGrip.app"
+export JAVA_HOME="$DATAGRIP_HOME/Contents/jbr/Contents/Home"
+
+./gradlew -PdatagripPath="$DATAGRIP_HOME/Contents" buildPlugin
 ```
 
-zip 顶层已含 `datagrip-table-structure/` 目录，直接解压到 `plugins/` 下即可。
+`datagripPath` 在 macOS 上必须指向 `.app/Contents`。也可在用户级 `~/.gradle/gradle.properties` 中设置 `datagripPath` 的绝对路径，省略命令中的 `-PdatagripPath=...`；个人安装路径不要提交到仓库。
 
-**使用**：打开 Database 工具窗 → 选一个 Oracle 数据源 → 展开 schema → 右键表 →
-**查看表结构**（在右键菜单顶部）；或焦点在数据库树时按 `Ctrl+Alt+Shift+S`。
+当前版本安装包为 `build/distributions/datagrip-table-structure-0.1.1.zip`，插件 ID 为 `com.github.chaaaaa.datagripts`。在 DataGrip 中依次打开 **Settings → Plugins → 齿轮菜单 → Install Plugin from Disk…**，选择安装包并重启。
 
-**卸载/更新**：`Settings → Plugins` 中卸载；更新时重复 Install from Disk 覆盖安装后重启。
+**旧版迁移**：旧插件 ID 为 `com.example.tablestructure`。新 ID 会被 DataGrip 识别为另一款插件，请先卸载旧版再安装，避免重复菜单和快捷键冲突。后续相同 ID 的更新可重复安装，卸载则在 Installed 列表中操作。
 
-> 本产物是本地构建、未签名，仅建议自用；升级 DataGrip 大版本后需要重新构建。
-
-## 本地编译验证（无需 Gradle）
-
-本机没有 Gradle，代码已用 DataGrip 自带 JBR 25 的 `javac` + 真实平台 jar 验证通过（exit 0、无 warning）。
-可重复执行：
+开发与兼容性检查：
 
 ```bash
-./scripts/compile-check.sh            # 默认使用 ~/Applications/DataGrip.app
-# 或指定 DataGrip 路径：
-DATAGRIP_HOME=/Applications/DataGrip.app ./scripts/compile-check.sh
+# 启动安装本插件的沙箱 DataGrip
+./gradlew -PdatagripPath="$DATAGRIP_HOME/Contents" runIde
+
+# 运行自检
+./gradlew -PdatagripPath="$DATAGRIP_HOME/Contents" check
+
+# 检查插件描述与安装包结构
+./gradlew -PdatagripPath="$DATAGRIP_HOME/Contents" verifyPluginProjectConfiguration verifyPluginStructure
+
+# 使用本地 DataGrip 检查二进制兼容性
+./gradlew -PdatagripPath="$DATAGRIP_HOME/Contents" verifyPlugin
 ```
 
-分支逻辑自检（无需 Gradle / 不启动 IDE）：
+沙箱 DataGrip 仍需要有效授权。普通 `buildPlugin` 产物未签名。
+
+## 本地自检
+
+以下脚本使用 DataGrip 自带 JBR 和平台 JAR，无需 Gradle，也不会启动 IDE。默认安装位置为 `~/Applications/DataGrip.app`，可通过 `DATAGRIP_HOME` 覆盖。
 
 ```bash
-./scripts/pick-schema-check.sh   # 总览默认选中哪个 schema
-./scripts/alter-ddl-check.sh     # ALTER DDL 生成（含注释转义、默认值/非空顺序）
+./scripts/compile-check.sh       # 编译全部主源码
+./scripts/pick-schema-check.sh   # schema 默认选择与回退规则
+./scripts/alter-ddl-check.sh     # Oracle ALTER DDL 拼接与注释转义
 ```
 
-脚本内部等价于：
+自检源码位于独立的 `src/selfCheck/java` source set，通过 `main` 方法运行，不依赖 JUnit。Gradle 的 `check` 已包含 `pickSchemaCheck` 和 `alterDdlCheck`，也可以使用上述脚本分别执行；`gradle test` 不会运行这些自检。
 
-```bash
-DG=~/Applications/DataGrip.app
-CP=$(ls "$DG/Contents/lib"/*.jar | tr '\n' ':')$(ls "$DG/Contents/plugins/DatabaseTools/lib"/*.jar | tr '\n' ':')$(ls "$DG/Contents/plugins/DatabaseTools/lib/modules"/*.jar | tr '\n' ':')
-"$DG/Contents/jbr/Contents/Home/bin/javac" -Xlint:deprecation -proc:none -d /tmp/out -cp "$CP" $(find src/main/java -name '*.java')
+## 工程结构
+
+```text
+├── AGENTS.md                         # AI 开发约定
+├── README.md                         # 功能、构建与维护说明
+├── build.gradle.kts                  # 构建、平台依赖与插件配置
+├── settings.gradle.kts
+├── gradle.properties                 # 共享版本与构建参数
+├── gradle/wrapper/                   # Gradle Wrapper
+├── gradlew / gradlew.bat
+├── scripts/                          # 编译与自检入口
+└── src/
+    ├── main/
+    │   ├── java/com/github/chaaaaa/datagripts/
+    │   │   ├── action/               # 菜单动作、打开入口、原生修改表桥接
+    │   │   ├── editor/               # 虚拟文件、编辑器、Provider、标签页复用
+    │   │   ├── model/                # 结构快照与对象标识
+    │   │   ├── service/              # 模型加载、内省刷新、DDL 生成
+    │   │   └── ui/                   # Swing 面板、表格、筛选与复制
+    │   └── resources/META-INF/plugin.xml
+    └── selfCheck/java/com/github/chaaaaa/datagripts/
+        ├── editor/PickSchemaCheck.java
+        └── service/AlterDdlCheck.java
 ```
 
-## 当前实现范围（v1）
+Java 根包及 Gradle group 为 `com.github.chaaaaa.datagripts`。名称、版本与最低平台 build 在 `gradle.properties` 中维护；菜单动作与编辑器扩展在 `plugin.xml` 中注册。开发约定见 [AGENTS.md](AGENTS.md)。
 
-- ✅ 编辑器 tab 打开 / 复用（同一张表不会开重复 tab）
-- ✅ 对象总览按 schema 切换（一次只查一个 schema），默认跟随连接当前 schema
-- ✅ 对象总览右键表 → 编辑表结构（复用 DataGrip 原生「修改表」对话框，不自研 DDL）
-- ✅ 模型取数：列 / 索引 / 主键唯一约束 / 外键 / 注释 / 类型与长度（不发起 JDBC 查询）
-- ✅ 后台读锁加载 + EDT 渲染；刷新按钮；数据源模型变化自动刷新
-- ✅ 表格复制：Ctrl+C 或右键复制**单元格**内容；点序号列选中整行后复制整行（制表符分隔，不含序号）
-- ✅ 「刷新」按钮会**回到数据库重新内省当前这张表**（fragment 刷新，与对象树右键刷新同一条路径），
-  不只是重读本地模型；不支持 fragment 内省的方言自动退化为重读模型
-- ✅ 列 Tab 多选列 → 右键「生成 ALTER DDL…」→ 弹窗预览 `ALTER TABLE … ADD (...)` + `COMMENT ON COLUMN`，可一键复制
-  （Oracle 语法；对象名称保留大小写并正确引用，自增列、计算列会明确提示跳过，需手工补全定义）
-- ✅ 表失效 / 加载失败的提示态
-- ⏳ 待增强：重启后 tab 恢复（自定义 VFS）、DDL 内页、Oracle 深度信息（表空间/分区/行数/CHECK 约束）、导出
-   （见 [docs/实现方案.md](docs/实现方案.md) §8.3、§9）
+## 实现边界
 
-## 注意事项
-
-- 插件使用了 `com.intellij.database.*`（DataGrip 内部 API）：跨 IDE 大版本升级需回归验证，并建议固定
-  `since-build` / `until-build`。
-- **DataGrip 2026.2 其实有一个实验性的“表编辑器 tab”**（内含 Data / Structure / DDL 内页），
-  由注册表开关 `database.editor.composite` 控制（默认关闭）。如果只是自己用、不要求定制 UI，
-  可以先试它；本插件的价值在于**只读、轻量、一屏展示列+索引+约束+外键**，且不依赖实验开关。
-  详见 [docs/实现方案.md](docs/实现方案.md) 第 0 节。
+- 结构信息来自 DataGrip 已内省的 `Das*` / PSI 模型，插件不自行建立 JDBC 连接。序列、存储过程等未显示时，先检查数据源的内省范围与级别。
+- 模型在后台读锁中加载，转换为展示数据后回到 EDT 更新界面；编辑器关闭时取消加载并断开消息订阅。项目级服务复用虚拟文件，避免重复标签页。
+- 当前使用 `LightVirtualFile`，IDE 重启后不会恢复结构和对象总览标签页。
+- ALTER DDL 仅支持 Oracle 新增列及列注释，不包含索引、主外键或其他约束；自增列、计算列和缺失类型的列会提示跳过。类型与默认值沿用模型文本，执行前需要核对目标库。
+- 暂未提供表空间、分区、行数、CHECK 约束、完整建表 DDL 或导出功能。
+- 使用了 DataGrip 内部 API；最低平台 build 为 `262`，未限制最高 build，不代表已验证所有后续版本。升级 DataGrip 后应重新编译并验证兼容性。

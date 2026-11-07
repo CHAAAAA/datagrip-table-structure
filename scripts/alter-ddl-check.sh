@@ -24,5 +24,5 @@ CP="${CP%:}"
 rm -rf "$OUT" && mkdir -p "$OUT"
 "$JAVAC" -proc:none -d "$OUT" -cp "$CP" \
   $(find "$ROOT/src/main/java" -name '*.java') \
-  "$ROOT/scripts/selfcheck/com/example/tablestructure/service/AlterDdlCheck.java"
-"$JAVA" -cp "$OUT:$CP" com.example.tablestructure.service.AlterDdlCheck
+  "$ROOT/src/selfCheck/java/com/github/chaaaaa/datagripts/service/AlterDdlCheck.java"
+"$JAVA" -cp "$OUT:$CP" com.github.chaaaaa.datagripts.service.AlterDdlCheck

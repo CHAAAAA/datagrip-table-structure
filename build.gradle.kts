@@ -1,6 +1,5 @@
 plugins {
     id("java")
-    // IntelliJ Platform Gradle Plugin 2.x（当前最新 2.19.0）
     id("org.jetbrains.intellij.platform") version "2.19.0"
 }
 
@@ -16,26 +15,44 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        // 本机开发首选：复用已安装的 DataGrip（零 IDE 下载，构建环境与运行环境完全一致）。
-        // macOS 注意：必须指向 DataGrip.app/Contents，而不是 .app 根目录
-        // （Gradle 插件用 ProductInfoPathResolver 查找 product-info.json，.app 根下没有该文件）。
+        // macOS 路径指向 DataGrip.app/Contents，避免重复下载 IDE。
         local(providers.gradleProperty("datagripPath").get())
 
-        // CI / 无本地安装时改用 installer 模式（DataGrip 没有 Maven 坐标，useInstaller 默认 true）：
-        // datagrip("2026.2.6")
-
-        // Database Tools and SQL（DataGrip / IntelliJ IDEA Ultimate 内置；插件 id 实测为 com.intellij.database）
         bundledPlugin("com.intellij.database")
     }
 }
 
 java {
-    // 平台 Gradle 插件会按目标平台 build 262 自动设置 Java 25 toolchain convention，
-    // 这里显式写出便于阅读。
-    // 注意：不要设置 tasks.compileJava.options.release（会触发 intellij-platform-gradle-plugin #1772）。
+    // 不设置 options.release，避免平台 Gradle 插件的变体属性冲突（#1772）。
     toolchain {
         languageVersion = JavaLanguageVersion.of(25)
     }
+}
+
+// 现有自检使用 main 入口，独立于 JUnit 的 test 源集。
+val selfCheck = sourceSets.create("selfCheck") {
+    compileClasspath += sourceSets.main.get().output + sourceSets.main.get().compileClasspath
+    runtimeClasspath += compileClasspath
+}
+
+val pickSchemaCheck by tasks.registering(JavaExec::class) {
+    group = "verification"
+    dependsOn(selfCheck.classesTaskName)
+    classpath = selfCheck.runtimeClasspath
+    mainClass = "com.github.chaaaaa.datagripts.editor.PickSchemaCheck"
+    javaLauncher = javaToolchains.launcherFor(java.toolchain)
+}
+
+val alterDdlCheck by tasks.registering(JavaExec::class) {
+    group = "verification"
+    dependsOn(selfCheck.classesTaskName)
+    classpath = selfCheck.runtimeClasspath
+    mainClass = "com.github.chaaaaa.datagripts.service.AlterDdlCheck"
+    javaLauncher = javaToolchains.launcherFor(java.toolchain)
+}
+
+tasks.check {
+    dependsOn(pickSchemaCheck, alterDdlCheck)
 }
 
 intellijPlatform {
@@ -43,11 +60,10 @@ intellijPlatform {
     buildSearchableOptions = false
 
     pluginConfiguration {
-        name = "Table Structure Viewer"
-        version = "0.1.1"
+        name = providers.gradleProperty("pluginName")
+        version = providers.gradleProperty("pluginVersion")
         ideaVersion {
-            // 2024.3+ 平台建议不要设置 untilBuild（否则新 IDE 上无法安装插件）
-            sinceBuild = "262"
+            sinceBuild = providers.gradleProperty("platformBuild")
         }
         vendor {
             name = "example"
