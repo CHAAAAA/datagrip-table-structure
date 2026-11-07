@@ -14,8 +14,9 @@
         </ul>
         入口一：数据库对象树右键菜单 → “查看表结构”（不使用弹窗，使用普通编辑器标签页）。
         <br/>
-        入口二：数据库对象树右键菜单 / 工具栏 → “对象总览”：列出该数据源的表、视图、序列、存储过程，
-        支持页面内模糊搜索（忽略大小写），双击表或视图可直接打开其结构。
+        入口二：数据库对象树右键菜单 / 工具栏 → “对象总览”：按 schema 列出表、视图、序列、存储过程，
+        支持页面内模糊搜索（忽略大小写）与 schema 切换（一次只查一个 schema）；
+        双击表或视图打开其结构，右键表可“编辑表结构”（调用 DataGrip 原生“修改表”对话框）。
         <br/>
         <b>注意</b>：在数据源属性中提高内省级别后，序列与存储过程才会出现在总览中。
     ]]></description>
@@ -46,7 +47,7 @@
         <action id="TableStructure.OpenBrowserAction"
                 class="com.example.tablestructure.action.OpenObjectBrowserAction"
                 text="对象总览"
-                description="在编辑器标签页中列出该数据源的表、视图、序列、存储过程，可模糊搜索，双击查看结构">
+                description="在编辑器标签页中按 schema 列出表、视图、序列、存储过程，可搜索、可切换 schema，双击查看结构、右键编辑表结构">
             <add-to-group group-id="DatabaseViewPopupMenu" anchor="after" relative-to-action="TableStructure.OpenAction"/>
             <add-to-group group-id="DatabaseViewToolbar" anchor="last"/>
         </action>

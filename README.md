@@ -4,8 +4,11 @@
 
 - 目标环境：**DataGrip 2026.2.6**（build `DB-262.10968.148`），依赖内置 Database Tools and SQL 插件（`com.intellij.database`）
 - 入口一：数据库对象树右键菜单 → **查看表结构**（快捷键 `Ctrl+Alt+Shift+S`）
-- 入口二：数据库对象树右键菜单 / 工具栏 → **对象总览**：列出该数据源的表、视图、序列、存储过程，
-  页面内模糊搜索（忽略大小写），双击表或视图直接打开其结构
+- 入口二：数据库对象树右键菜单 / 工具栏 → **对象总览**：
+  - **按 schema 查看**：顶部 schema 下拉框切换，一次只查一个 schema 的对象（默认跟随连接当前 schema）
+  - 列出所选中 schema 下的表、视图、序列、存储过程，页面内模糊搜索（忽略大小写）+ 类型过滤
+  - 双击表或视图打开其结构
+  - **右键表 → 编辑表结构…**：调用 DataGrip 原生「修改表」对话框（改列/索引/约束并预览 DDL）
 - 内容：
   - 顶部概要：表名 / schema / 注释 / 数据源 / DBMS 版本 / 列·索引·约束·外键数量
   - **列**：序号、列名、类型、长度、精度、标度、非空、默认值、主键、外键、自增、计算列、注释
@@ -121,6 +124,13 @@ zip 顶层已含 `datagrip-table-structure/` 目录，直接解压到 `plugins/`
 DATAGRIP_HOME=/Applications/DataGrip.app ./scripts/compile-check.sh
 ```
 
+分支逻辑自检（无需 Gradle / 不启动 IDE）：
+
+```bash
+./scripts/pick-schema-check.sh   # 总览默认选中哪个 schema
+./scripts/alter-ddl-check.sh     # ALTER DDL 生成（含注释转义、默认值/非空顺序）
+```
+
 脚本内部等价于：
 
 ```bash
@@ -132,10 +142,17 @@ CP=$(ls "$DG/Contents/lib"/*.jar | tr '\n' ':')$(ls "$DG/Contents/plugins/Databa
 ## 当前实现范围（v1）
 
 - ✅ 编辑器 tab 打开 / 复用（同一张表不会开重复 tab）
+- ✅ 对象总览按 schema 切换（一次只查一个 schema），默认跟随连接当前 schema
+- ✅ 对象总览右键表 → 编辑表结构（复用 DataGrip 原生「修改表」对话框，不自研 DDL）
 - ✅ 模型取数：列 / 索引 / 主键唯一约束 / 外键 / 注释 / 类型与长度（不发起 JDBC 查询）
 - ✅ 后台读锁加载 + EDT 渲染；刷新按钮；数据源模型变化自动刷新
+- ✅ 表格复制：Ctrl+C 或右键复制**单元格**内容；点序号列选中整行后复制整行（制表符分隔，不含序号）
+- ✅ 「刷新」按钮会**回到数据库重新内省当前这张表**（fragment 刷新，与对象树右键刷新同一条路径），
+  不只是重读本地模型；不支持 fragment 内省的方言自动退化为重读模型
+- ✅ 列 Tab 多选列 → 右键「生成 ALTER DDL…」→ 弹窗预览 `ALTER TABLE … ADD (...)` + `COMMENT ON COLUMN`，可一键复制
+  （Oracle 语法；对象名称保留大小写并正确引用，自增列、计算列会明确提示跳过，需手工补全定义）
 - ✅ 表失效 / 加载失败的提示态
-- ⏳ 待增强：重启后 tab 恢复（自定义 VFS）、DDL 内页、Oracle 深度信息（表空间/分区/行数/CHECK 约束）、导出/过滤
+- ⏳ 待增强：重启后 tab 恢复（自定义 VFS）、DDL 内页、Oracle 深度信息（表空间/分区/行数/CHECK 约束）、导出
    （见 [docs/实现方案.md](docs/实现方案.md) §8.3、§9）
 
 ## 注意事项

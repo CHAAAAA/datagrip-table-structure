@@ -1,7 +1,11 @@
 package com.example.tablestructure.editor;
 
+import com.example.tablestructure.model.ColumnInfo;
 import com.example.tablestructure.model.TableStructure;
+import com.example.tablestructure.service.AlterDdlGenerator;
+import com.example.tablestructure.service.TableRefreshService;
 import com.example.tablestructure.service.TableStructureLoader;
+import com.example.tablestructure.ui.AlterDdlDialog;
 import com.example.tablestructure.ui.TableStructurePanel;
 import com.intellij.database.psi.DbPsiFacade;
 import com.intellij.database.psi.DbTable;
@@ -23,6 +27,7 @@ import org.jetbrains.concurrency.CancellablePromise;
 import javax.swing.JComponent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.List;
 
 /**
  * 表结构查看器的编辑器实现：一个 {@link FileEditor}，内容是一个 Swing 面板（{@link TableStructurePanel}），
@@ -46,14 +51,51 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
     private volatile boolean disposed;
     @Nullable
     private CancellablePromise<TableStructure> currentLoad;
+    /** 最近一次成功加载的结构（生成 ALTER DDL 时要取限定表名）。只在 EDT 读写。 */
+    @Nullable
+    private TableStructure structure;
 
     public TableStructureFileEditor(@NotNull Project project, @NotNull TableStructureVirtualFile file) {
         this.project = project;
         this.file = file;
-        this.panel.setRefreshAction(this::refresh);
+        this.panel.setRefreshAction(this::refreshFromDatabase);
+        this.panel.setAlterDdlAction(columns -> showAlterDdl(columns));
         this.connection = project.getMessageBus().connect(this);
         this.connection.subscribe(DbPsiFacade.TOPIC, (DbPsiFacade.Listener) dataSource -> refresh());
         refresh();
+    }
+
+    /**
+     * 刷新按钮：先回到数据库重新内省这张表，内省结束后再重新读模型。
+     *
+     * <p>数据库内省拿不到时（未连接 / 模型未加载 / 方言不支持）退化成本来就有的「只重读模型」，
+     * 这样按钮在任何状态下都有反馈，不会点了没反应。</p>
+     */
+    private void refreshFromDatabase() {
+        if (disposed) {
+            return;
+        }
+        panel.showLoading();
+        // 解析 DbTable 与发起内省都要在后台读锁内做，这里不复用 refresh()（它有自己的 promise 生命周期）
+        ReadAction.nonBlocking(() -> {
+                    DbTable table = file.getTablePointer().getElement();
+                    if (table == null) {
+                        throw new IllegalStateException("表对象已失效（可能已被删除，或数据源已断开）");
+                    }
+                    return table;
+                })
+                .inSmartMode(project)
+                .expireWith(this)
+                .submit(AppExecutorUtil.getAppExecutorService())
+                .onSuccess(table -> TableRefreshService.refreshFromDatabase(project, table, this::refresh))
+                .onError(error -> ApplicationManager.getApplication()
+                        .invokeLater(() -> {
+                            if (!disposed) {
+                                panel.showError(error == null || error.getMessage() == null
+                                        ? "未知错误"
+                                        : error.getMessage());
+                            }
+                        }, ModalityState.any()));
     }
 
     /** 重新从 DataGrip 模型读取表结构（异步，可在任意线程调用）。 */
@@ -83,10 +125,11 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
                 .submit(AppExecutorUtil.getAppExecutorService());
 
         currentLoad = promise;
-        promise.onSuccess(structure -> ApplicationManager.getApplication()
+        promise.onSuccess(loaded -> ApplicationManager.getApplication()
                         .invokeLater(() -> {
                             if (!disposed) {
-                                panel.showStructure(structure);
+                                structure = loaded;
+                                panel.showStructure(loaded);
                             }
                         }, ModalityState.any()))
                 .onError(error -> ApplicationManager.getApplication()
@@ -99,8 +142,23 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
                         }, ModalityState.any()));
     }
 
-    // ---- FileEditor -------------------------------------------------------------------------
+    /**
+     * 列 Tab 右键「生成 ALTER DDL」：把选中的列拼成 ADD COLUMN 语句并弹窗预览。
+     * 纯字符串拼接（{@link AlterDdlGenerator}），不碰数据库模型，因此在 EDT 上直接做即可。
+     */
+    private void showAlterDdl(@NotNull List<ColumnInfo> columns) {
+        TableStructure current = structure;
+        if (current == null || columns.isEmpty()) {
+            return;
+        }
+        String ddl = AlterDdlGenerator.addColumns(current.table().schema(), current.table().name(), columns);
+        if (ddl.isEmpty()) {
+            return;
+        }
+        AlterDdlDialog.show(project, ddl);
+    }
 
+    // ---- FileEditor -------------------------------------------------------------------------
     @Override
     public @NotNull JComponent getComponent() {
         return panel;

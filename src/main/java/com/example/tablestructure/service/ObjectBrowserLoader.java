@@ -1,49 +1,124 @@
 package com.example.tablestructure.service;
 
 import com.example.tablestructure.model.ObjectEntry;
+import com.intellij.database.model.DasNamespace;
 import com.intellij.database.model.DasObject;
 import com.intellij.database.model.DasTable;
 import com.intellij.database.model.ObjectKind;
+import com.intellij.database.model.basic.BasicNamespace;
 import com.intellij.database.psi.DbDataSource;
 import com.intellij.database.util.DasUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
- * 枚举某数据源下的表 / 视图 / 序列 / 存储过程。必须在读锁内调用。
+ * 枚举某数据源下的 schema 及其表 / 视图 / 序列 / 存储过程。必须在读锁内调用。
  *
- * <p>一次 {@code getSchemaElements} 遍历即可拿到全部对象（内部会跳过 namespace 节点），
- * 无需按类型分别查询。</p>
+ * <p>总览一次只看一个 schema：先用 {@link #loadSchemas} 取下拉选项，再按选中的 schema
+ * 调用 {@link #load}，不再一次性遍历整库。</p>
  */
 public final class ObjectBrowserLoader {
+
+    /** 关注的直接子对象类型，与 {@link #classify} 保持一致。 */
+    private static final List<ObjectKind> KINDS = List.of(
+            ObjectKind.TABLE, ObjectKind.VIEW, ObjectKind.MAT_VIEW, ObjectKind.MAT_LOG,
+            ObjectKind.SEQUENCE, ObjectKind.ROUTINE, ObjectKind.PACKAGE, ObjectKind.BODY,
+            ObjectKind.METHOD);
 
     private ObjectBrowserLoader() {
     }
 
-    public static @NotNull List<ObjectEntry> load(@NotNull DbDataSource dataSource) {
-        List<ObjectEntry> result = new ArrayList<>();
-        // shortcut: 会遍历到列/索引等子对象再过滤掉（全内存、无 I/O，数千表量级可接受）；
-        // 若超大库首次打开变慢，改为按 namespace.getDbChildren(对象类型) 分层取。
-        for (DasObject object : DasUtil.getSchemaElements(dataSource, DasObject.class)) {
-            ObjectKind kind = object.getKind();
-            String group = classify(kind);
-            if (group == null) {
-                continue;
+    /** 该数据源下的全部 schema 名，按名称升序（忽略大小写）；无 schema 概念时返回空 List。必须在读锁内调用。 */
+    public static @NotNull List<String> loadSchemas(@NotNull DbDataSource dataSource) {
+        Set<String> names = new LinkedHashSet<>();
+        for (DasNamespace schema : DasUtil.getSchemas(dataSource)) {
+            String name = schema == null ? null : schema.getName();
+            if (name != null && !name.isEmpty()) {
+                names.add(name);
             }
-            result.add(new ObjectEntry(
-                    nullToEmpty(object.getName()),
-                    nullToEmpty(DasUtil.getSchema(object)),
-                    kind == null ? "" : nullToEmpty(kind.getPresentableName()),
-                    nullToEmpty(object.getComment()),
-                    group,
-                    object instanceof DasTable,
-                    object
-            ));
         }
+        List<String> result = new ArrayList<>(names);
+        result.sort(String.CASE_INSENSITIVE_ORDER);
         return result;
+    }
+
+    /** 连接当前 schema 名；取不到返回 null。必须在读锁内调用。 */
+    public static @Nullable String currentSchema(@NotNull DbDataSource dataSource) {
+        try {
+            // DasModel 接口本身就暴露了当前 schema，无需强转到 BasicModel
+            DasNamespace current = dataSource.getModel() == null ? null : dataSource.getModel().getCurrentRootNamespace();
+            String name = current == null ? null : current.getName();
+            if (name != null && !name.isEmpty()) {
+                return name;
+            }
+            for (DasNamespace schema : DasUtil.getSchemas(dataSource)) {
+                if (schema instanceof BasicNamespace basic && basic.isCurrent()) {
+                    String schemaName = schema.getName();
+                    if (schemaName != null && !schemaName.isEmpty()) {
+                        return schemaName;
+                    }
+                }
+            }
+        } catch (Exception ignored) {
+            // shortcut: 这里只是给下拉框取默认值，平台 API 拿不到就让调用方退到第一个 schema；
+            // 若 getCurrentRootNamespace 对所有目标方言都稳定，可删掉这段兜底。
+        }
+        return null;
+    }
+
+    /** 只枚举指定 schema 下的表 / 视图 / 序列 / 存储过程，按名称排序；schema 不存在返回空 List。必须在读锁内调用。 */
+    public static @NotNull List<ObjectEntry> load(@NotNull DbDataSource dataSource, @NotNull String schema) {
+        List<ObjectEntry> result = new ArrayList<>();
+        DasNamespace namespace = null;
+        for (DasNamespace candidate : DasUtil.getSchemas(dataSource)) {
+            if (candidate != null && schema.equals(candidate.getName())) {
+                namespace = candidate;
+                break;
+            }
+        }
+        if (namespace != null) {
+            for (ObjectKind kind : KINDS) {
+                String group = classify(kind);
+                if (group == null) {
+                    continue;
+                }
+                for (DasObject object : namespace.getDasChildren(kind)) {
+                    result.add(toEntry(object, schema, group));
+                }
+            }
+        }
+        if (result.isEmpty()) {
+            // shortcut: 少数方言的 namespace 不实现 getDasChildren（枚举为空），此时退回全量遍历再按 schema
+            // 过滤，代价是切到空 schema 时会多扫一遍全库；等确认平台已覆盖所有目标方言即删除本分支。
+            for (DasObject object : DasUtil.getSchemaElements(dataSource, DasObject.class)) {
+                String group = classify(object.getKind());
+                if (group == null || !schema.equals(nullToEmpty(DasUtil.getSchema(object)))) {
+                    continue;
+                }
+                result.add(toEntry(object, schema, group));
+            }
+        }
+        result.sort((a, b) -> String.CASE_INSENSITIVE_ORDER.compare(a.name(), b.name()));
+        return result;
+    }
+
+    private static @NotNull ObjectEntry toEntry(@NotNull DasObject object, @NotNull String schema,
+                                                @NotNull String group) {
+        ObjectKind kind = object.getKind();
+        return new ObjectEntry(
+                nullToEmpty(object.getName()),
+                schema,
+                kind == null ? "" : nullToEmpty(kind.getPresentableName()),
+                nullToEmpty(object.getComment()),
+                group,
+                object instanceof DasTable,
+                object
+        );
     }
 
     /** 返回过滤分组；不在范围内的对象类型返回 null。 */

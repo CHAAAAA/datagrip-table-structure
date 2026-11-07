@@ -44,7 +44,7 @@ intellijPlatform {
 
     pluginConfiguration {
         name = "Table Structure Viewer"
-        version = "0.1.0"
+        version = "0.1.1"
         ideaVersion {
             // 2024.3+ 平台建议不要设置 untilBuild（否则新 IDE 上无法安装插件）
             sinceBuild = "262"
