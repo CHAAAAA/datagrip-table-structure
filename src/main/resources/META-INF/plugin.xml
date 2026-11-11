@@ -7,7 +7,7 @@
         <ul>
             <li>Inspect columns, data types, default values, comments, indexes, primary and unique keys, and foreign keys.</li>
             <li>Browse tables, views, sequences, and stored routines by schema, with name search and object-type filters.</li>
-            <li>Open table or view structures with a left-button double-click. Copy cells or rows as tab-separated text.</li>
+            <li>Open table or view structures with a left-button double-click. Drag to select cells and copy the selection, or copy a row, as tab-separated text.</li>
             <li>For tables, open DataGrip's native Modify Table dialog, data editor, or generated CREATE SQL in a SQL console.</li>
             <li>Preview and copy Oracle ADD COLUMN statements and column comments for selected columns.</li>
         </ul>
@@ -26,7 +26,7 @@
         <ul>
             <li>查看列、数据类型、默认值、注释、索引、主键、唯一约束和外键。</li>
             <li>按 schema 浏览表、视图、序列和存储过程，支持名称搜索和对象类型过滤。</li>
-            <li>快速左键双击表或视图打开结构；支持复制单元格，以及按制表符分隔复制整行。</li>
+            <li>快速左键双击表或视图打开结构；支持拖动选中单元格并复制选中内容，或按制表符分隔复制整行。</li>
             <li>为表提供 DataGrip 原生修改表对话框、数据编辑器和创建 SQL 控制台的快捷入口。</li>
             <li>预览和复制选中列的 Oracle 新增列语句及列注释。</li>
         </ul>
@@ -41,6 +41,11 @@
     ]]></description>
 
     <change-notes><![CDATA[
+        <p>1.0.1</p>
+        <ul>
+            <li>Drag-select table cells and copy only the selected cells; row copying is still available.</li>
+        </ul>
+        <p>中文：拖动选中表格单元格，复制时只复制选中的单元格；仍支持复制整行。</p>
         <p>1.0.0</p>
         <ul>
             <li>Read-only table and view structure tabs with cell and row copying.</li>

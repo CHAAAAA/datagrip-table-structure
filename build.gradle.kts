@@ -62,8 +62,18 @@ val alterDdlCheck by tasks.registering(JavaExec::class) {
     javaLauncher = javaToolchains.launcherFor(java.toolchain)
 }
 
+val copySelectionCheck by tasks.registering(JavaExec::class) {
+    group = "verification"
+    dependsOn(selfCheck.classesTaskName)
+    classpath = selfCheck.runtimeClasspath
+    mainClass = "com.github.chaaaaa.datagripts.ui.CopySelectionCheck"
+    javaLauncher = javaToolchains.launcherFor(java.toolchain)
+    // 只构造 JTable/模型验证复制文本，不需要真实显示环境
+    systemProperty("java.awt.headless", "true")
+}
+
 tasks.check {
-    dependsOn(pickSchemaCheck, alterDdlCheck)
+    dependsOn(pickSchemaCheck, alterDdlCheck, copySelectionCheck)
 }
 
 intellijPlatform {

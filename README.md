@@ -9,7 +9,7 @@
 Table Structure Viewer adds read-only table and view structure tabs and a schema-based object browser to DataGrip. Inspect columns, data types, default values, comments, indexes, primary and unique keys, and foreign keys without leaving the editor area.
 
 - Browse tables, views, sequences, and stored routines by schema, with name search and object-type filters.
-- Copy individual cells or rows as tab-separated text.
+- Drag-select cells and copy the selection, or copy a row, as tab-separated text.
 - For tables, open DataGrip's native Modify Table dialog, data editor, or generated CREATE SQL in a SQL console.
 - Preview and copy Oracle ADD COLUMN statements and column comments for selected columns. This preview always uses Oracle syntax; it does not adapt to other database dialects or execute SQL automatically.
 
@@ -21,7 +21,7 @@ The structure viewer is read-only, but the native table tools can modify data or
 
 ## 中文介绍
 
-Table Structure Viewer 为 DataGrip 提供表和视图的只读结构标签页，以及按 schema 浏览数据库对象的总览。可以查看列、数据类型、默认值、注释、索引、主键、唯一约束和外键，复制单元格或整行，并快捷打开 DataGrip 原生表操作工具。支持预览和复制 Oracle 新增列 SQL，生成的语句不会自动执行。**当前插件界面为简体中文。**
+Table Structure Viewer 为 DataGrip 提供表和视图的只读结构标签页，以及按 schema 浏览数据库对象的总览。可以查看列、数据类型、默认值、注释、索引、主键、唯一约束和外键，拖动选中并复制单元格（或复制整行），并快捷打开 DataGrip 原生表操作工具。支持预览和复制 Oracle 新增列 SQL，生成的语句不会自动执行。**当前插件界面为简体中文。**
 
 ## 功能与使用
 
@@ -39,7 +39,7 @@ Table Structure Viewer 为 DataGrip 提供表和视图的只读结构标签页�
 - **对象操作**：表结构页右上角的 **更多** 菜单提供 **修改表结构、查看数据、生成创建 SQL**，三项均仅对表可用，视图只支持查看结构。修改表结构打开 DataGrip 原生修改表对话框，查看数据打开原生数据编辑标签页；生成创建 SQL 由 DataGrip 生成 DDL 并打开原生 SQL 控制台，不会自动执行。
 - **只读范围**：插件的结构视图为只读；通过原生修改表对话框或数据编辑器应用修改时，仍可能更改数据库结构或数据。
 - **刷新**：表结构页通过 DataGrip 重新内省当前表，再加载模型；不支持单表内省时退回重读模型。数据源模型变化后也会自动刷新。对象总览的刷新会重新读取当前 schema 已内省的对象列表。
-- **复制**：支持复制单元格或整行；点击序号列可选中整行，整行复制使用制表符分隔并省略序号。
+- **复制**：在对象总览和对象页签的表格中按住左键拖动，会选中起点到当前单元格的矩形区域；`Ctrl+C` 或右键「复制单元格」只复制选中的单元格，列间制表符、行间换行。序号列不参与，仅选中序号列时复制其文本。右键「复制行」复制当前行全部列（制表符分隔，不含序号）。
 - **生成 Oracle ALTER DDL**：在列页选择一列或多列，右键预览、复制 Oracle 新增列语句及列注释。该预览始终使用 Oracle 语法，不自动适配其他数据库，也不自动执行语句。
 
 对象列表来自 DataGrip 已内省的模型。若缺少对象，请检查 schema、权限和内省设置，先在 DataGrip 刷新数据源，再刷新对象总览。序列和存储过程目前仅在总览中列出，不提供自定义结构标签页。
@@ -76,7 +76,7 @@ Windows PowerShell：
 
 可选本地覆盖：为同一命令添加 `-PdatagripPath="实际安装路径"`，macOS 指向 `DataGrip.app/Contents`，Windows / Linux 指向 DataGrip 安装根目录。也可在用户级 Gradle 配置（默认 `~/.gradle/gradle.properties`）中设置 `datagripPath`，个人路径不要写入仓库的 `gradle.properties`。设置后优先使用该本地安装，移除该属性即可恢复默认 SDK 下载。若使用 DataGrip 自带 JBR 作为 JDK，请将 `JAVA_HOME` 指向该 JBR 的 Java Home。
 
-当前插件版本为 **1.0.0**，构建后安装包为 `build/distributions/datagrip-table-structure-1.0.0.zip`，插件 ID 为 `com.github.chaaaaa.datagripts`。在 DataGrip 中依次打开 **Settings → Plugins → 齿轮菜单 → Install Plugin from Disk…**，选择安装包并重启。
+当前插件版本为 **1.0.1**，构建后安装包为 `build/distributions/datagrip-table-structure-1.0.1.zip`，插件 ID 为 `com.github.chaaaaa.datagripts`。在 DataGrip 中依次打开 **Settings → Plugins → 齿轮菜单 → Install Plugin from Disk…**，选择安装包并重启。
 
 如果此前安装过插件 ID 为 `com.example.tablestructure` 的旧包，请先卸载旧包，避免重复菜单和快捷键。当前插件保持 ID `com.github.chaaaaa.datagripts`，后续更新沿用同一安装身份。
 
@@ -100,15 +100,16 @@ Windows PowerShell：
 
 ## 可选的 macOS 本地自检
 
-标准自检入口是 Gradle `check`。下面三个脚本仅作为 macOS 上的离线快捷入口，使用已安装 DataGrip 的 JBR 和平台 JAR，无需 Gradle，也不会启动 IDE。默认安装位置为 `~/Applications/DataGrip.app`，可通过 `DATAGRIP_HOME` 覆盖；脚本中的 `.app/Contents` 目录结构不适用于 Windows / Linux。
+标准自检入口是 Gradle `check`。下面四个脚本仅作为 macOS 上的离线快捷入口，使用已安装 DataGrip 的 JBR 和平台 JAR，无需 Gradle，也不会启动 IDE。默认安装位置为 `~/Applications/DataGrip.app`，可通过 `DATAGRIP_HOME` 覆盖；脚本中的 `.app/Contents` 目录结构不适用于 Windows / Linux。
 
 ```bash
-./scripts/compile-check.sh       # 编译全部主源码
-./scripts/pick-schema-check.sh   # schema 默认选择与回退规则
-./scripts/alter-ddl-check.sh     # Oracle ALTER DDL 拼接与注释转义
+./scripts/compile-check.sh          # 编译全部主源码
+./scripts/pick-schema-check.sh      # schema 默认选择与回退规则
+./scripts/alter-ddl-check.sh        # Oracle ALTER DDL 拼接与注释转义
+./scripts/copy-selection-check.sh   # 复制选中单元格的文本拼接
 ```
 
-自检源码位于独立的 `src/selfCheck/java` source set，通过 `main` 方法运行，不依赖 JUnit。Gradle 的 `check` 已包含 `pickSchemaCheck` 和 `alterDdlCheck`，也可以使用上述脚本分别执行；`gradle test` 不会运行这些自检。
+自检源码位于独立的 `src/selfCheck/java` source set，通过 `main` 方法运行，不依赖 JUnit。Gradle 的 `check` 已包含 `pickSchemaCheck`、`alterDdlCheck` 和 `copySelectionCheck`，也可以使用上述脚本分别执行；`gradle test` 不会运行这些自检。
 
 ## 工程结构
 
@@ -133,7 +134,8 @@ Windows PowerShell：
     │   └── resources/META-INF/plugin.xml
     └── selfCheck/java/com/github/chaaaaa/datagripts/
         ├── editor/PickSchemaCheck.java
-        └── service/AlterDdlCheck.java
+        ├── service/AlterDdlCheck.java
+        └── ui/CopySelectionCheck.java
 ```
 
 Java 根包及 Gradle group 为 `com.github.chaaaaa.datagripts`。插件名称、版本、默认 SDK 版本与最低平台 build 在 `gradle.properties` 中维护；菜单动作与编辑器扩展在 `plugin.xml` 中注册。开发约定见 [AGENTS.md](AGENTS.md)。

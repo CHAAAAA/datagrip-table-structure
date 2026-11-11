@@ -44,7 +44,7 @@ import java.util.function.Consumer;
 public final class ObjectBrowserPanel extends JPanel {
 
     private static final String ALL_GROUPS = "全部";
-    /** 第 0 列是行号：点击它选中整行，复制整行时跳过。 */
+    /** 第 0 列是行号：复制时跳过，仅选中它时照常复制。 */
     private static final String[] HEADERS = {"#", "对象名", "类型", "Schema", "注释"};
     private static final int[] WIDTHS = {40, 260, 110, 130, 340};
 
@@ -371,7 +371,7 @@ public final class ObjectBrowserPanel extends JPanel {
     private static @NotNull JBTable createTable(@NotNull ReadOnlyTableModel model) {
         JBTable table = new JBTable(model);
         table.setAutoCreateRowSorter(true);
-        table.setRowSelectionAllowed(true);
+        table.setCellSelectionEnabled(true);
         table.setFillsViewportHeight(true);
         table.setStriped(true);
         table.setShowVerticalLines(false);

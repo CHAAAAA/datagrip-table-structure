@@ -54,7 +54,7 @@ public final class TableStructurePanel extends JPanel {
     private static final int[] COLUMN_WIDTHS = {40, 160, 170, 60, 60, 60, 55, 140, 300, 55, 55, 55, 65};
     /** 列 Tab 中需要按数字右对齐的下标：# / 长度 / 精度 / 标度。 */
     private static final int[] COLUMN_RIGHT_ALIGNED = {0, 3, 4, 5};
-    /** 列 Tab 的序号列：点它选中整行，复制整行时跳过。 */
+    /** 列 Tab 的序号列：复制整行与复制选中单元格时都跳过，仅选中它时照常复制。 */
     private static final IntPredicate COLUMN_IS_ROW_HANDLE = column -> column == 0;
 
     private static final String[] INDEX_HEADERS = {"索引名", "唯一", "函数索引", "索引列", "注释"};
@@ -178,7 +178,7 @@ public final class TableStructurePanel extends JPanel {
     }
 
     /**
-     * 四张表都挂上复制能力；列 Tab 的第 0 列（{@code #}）是序号列：点它选整行，复制整行时跳过它。
+     * 四张表都挂上复制能力；列 Tab 的第 0 列（{@code #}）是序号列，复制整行和选中单元格时跳过它。
      * 列 Tab 的右键菜单在复制项之后追加「生成 Oracle ALTER DDL」。
      */
     private void installCopy() {
@@ -343,7 +343,7 @@ public final class TableStructurePanel extends JPanel {
     private static @NotNull JBTable createTable(@NotNull ReadOnlyTableModel model, @NotNull int[] preferredWidths) {
         JBTable table = new JBTable(model);
         table.setAutoCreateRowSorter(true);
-        table.setRowSelectionAllowed(true);
+        table.setCellSelectionEnabled(true);
         table.setFillsViewportHeight(true);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.setStriped(true);
