@@ -3,13 +3,11 @@ package com.github.chaaaaa.datagripts.action;
 import com.github.chaaaaa.datagripts.editor.TableStructureService;
 import com.github.chaaaaa.datagripts.editor.TableStructureVirtualFile;
 import com.github.chaaaaa.datagripts.model.TableKey;
-import com.intellij.database.DatabaseDataKeysCore;
 import com.intellij.database.model.DasTable;
 import com.intellij.database.psi.DbDataSource;
 import com.intellij.database.psi.DbTable;
 import com.intellij.database.util.DasUtil;
 import com.intellij.openapi.application.ReadAction;
-import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.SmartPointerManager;
 import com.intellij.psi.SmartPsiElementPointer;
@@ -17,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * “打开表结构标签页”的统一入口：从 {@link DbTable} 构造稳定 key + 智能指针，复用/创建虚拟文件，
- * 最后交给 {@link FileEditorManager} 以普通编辑器 tab 打开。
+ * 最后交给 {@link TableStructureService#openEditor} 以普通编辑器 tab 打开。
  */
 public final class TableStructureOpener {
 
@@ -29,13 +27,14 @@ public final class TableStructureOpener {
      * 需要在读锁内构造 key 与智能指针，因此整体包在 {@link ReadAction} 中。
      */
     public static void open(@NotNull Project project, @NotNull DbTable table) {
+        TableStructureService service = TableStructureService.getInstance(project);
         TableStructureVirtualFile file = ReadAction.computeBlocking(() -> {
             TableKey key = buildKey(table);
             SmartPsiElementPointer<DbTable> pointer =
                     SmartPointerManager.getInstance(project).createSmartPsiElementPointer(table);
-            return TableStructureService.getInstance(project).fileFor(key, pointer);
+            return service.fileFor(key, pointer);
         });
-        FileEditorManager.getInstance(project).openFile(file, true);
+        service.openEditor(project, file);
     }
 
     /** 构造稳定 key：数据源 uniqueId + schema + 表名。 */

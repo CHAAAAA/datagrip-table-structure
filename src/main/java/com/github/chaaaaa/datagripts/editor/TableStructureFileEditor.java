@@ -4,7 +4,6 @@ import com.github.chaaaaa.datagripts.action.TableActionBridge;
 import com.github.chaaaaa.datagripts.model.ColumnInfo;
 import com.github.chaaaaa.datagripts.model.TableStructure;
 import com.github.chaaaaa.datagripts.service.AlterDdlGenerator;
-import com.github.chaaaaa.datagripts.service.TableRefreshService;
 import com.github.chaaaaa.datagripts.service.TableStructureLoader;
 import com.github.chaaaaa.datagripts.ui.AlterDdlDialog;
 import com.github.chaaaaa.datagripts.ui.TableStructurePanel;
@@ -109,9 +108,10 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
     }
 
     /**
-     * 刷新按钮：先回到数据库重新内省这张表，内省结束后再重新读模型。
+     * 刷新按钮：先请 DataGrip 回库重新内省这张表，同时先重读一次模型结束 loading；
+     * 内省结果落地后 {@link DbPsiFacade#TOPIC} 会再触发一次刷新。
      *
-     * <p>数据库内省拿不到时（未连接 / 模型未加载 / 方言不支持）退化成本来就有的「只重读模型」，
+     * <p>原生刷新动作不可用时（未连接 / 模型未加载 / 方言不支持）退化成本来就有的「只重读模型」，
      * 这样按钮在任何状态下都有反馈，不会点了没反应。</p>
      */
     private void refreshFromDatabase() {
@@ -130,7 +130,12 @@ public final class TableStructureFileEditor extends UserDataHolderBase implement
                 .inSmartMode(project)
                 .expireWith(this)
                 .submit(AppExecutorUtil.getAppExecutorService())
-                .onSuccess(table -> TableRefreshService.refreshFromDatabase(project, table, this::refresh))
+                .onSuccess(table -> {
+                    TableActionBridge.refreshFragment(project, table);
+                    // 原生刷新动作没有完成回调：先重读模型结束 loading；库内重新内省完成时 DbPsiFacade.TOPIC 会再刷新一次，
+                    // 动作不可用时这一步就是原有的「只重读模型」回退。
+                    refresh();
+                })
                 .onError(error -> ApplicationManager.getApplication()
                         .invokeLater(() -> {
                             if (!disposed) {

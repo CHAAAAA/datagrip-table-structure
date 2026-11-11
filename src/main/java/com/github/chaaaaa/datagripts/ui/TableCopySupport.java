@@ -1,13 +1,13 @@
 package com.github.chaaaaa.datagripts.ui;
 
 import com.intellij.ide.CopyProvider;
-import com.intellij.ide.DataManager;
 import com.intellij.openapi.actionSystem.ActionUpdateThread;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.actionSystem.DataProvider;
+import com.intellij.openapi.actionSystem.DataSink;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.actionSystem.UiDataProvider;
 import com.intellij.openapi.ide.CopyPasteManager;
 import com.intellij.ui.table.JBTable;
 import org.jetbrains.annotations.NotNull;
@@ -39,12 +39,18 @@ public final class TableCopySupport {
     private TableCopySupport() {
     }
 
+    /** 创建可向 DataContext 提供复制数据的表格；{@link #install} 只接受这里创建的表格。 */
+    public static @NotNull JBTable createTable(@NotNull ReadOnlyTableModel model) {
+        return new CopyTable(model);
+    }
+
     /**
      * 注册复制能力到表格上，并返回「复制单元格 / 复制行」菜单组。
      *
      * <p>调用方负责把这个组放进自己的右键菜单；同一个表格重复调用是安全的——
-     * provider 与鼠标监听只装一次（见 {@link #PROVIDER_KEY}）。</p>
+     * provider 与鼠标监听只装一次。</p>
      *
+     * @param table 必须由 {@link #createTable} 创建
      * @param isRowHandle 哪些列是序号列：复制整行与复制选中单元格时都跳过，
      *                    仅当没有其他列被选中时才复制序号列本身
      */
@@ -57,15 +63,15 @@ public final class TableCopySupport {
     /** 安装复制 provider（幂等），返回该表格的 provider。 */
     private static @NotNull Provider providerOf(@NotNull JBTable table, @NotNull ReadOnlyTableModel model,
                                                 @NotNull IntPredicate isRowHandle) {
-        // provider 存在表格自己的 client property 上：跟随表格生命周期，天然幂等且不会泄漏
-        // （用静态 WeakHashMap 会因 provider 反向强引用 table 而永远回收不掉）
-        Object existing = table.getClientProperty(PROVIDER_KEY);
-        if (existing instanceof Provider provider) {
-            return provider;
+        if (!(table instanceof CopyTable copyTable)) {
+            throw new IllegalArgumentException("表格需通过 TableCopySupport.createTable 创建");
+        }
+        // provider 存在表格自己的字段上：跟随表格生命周期，天然幂等且不会泄漏
+        if (copyTable.provider != null) {
+            return copyTable.provider;
         }
         Provider provider = new Provider(table, model, isRowHandle);
-        table.putClientProperty(PROVIDER_KEY, provider);
-        registerCopyProvider(table, provider);
+        copyTable.provider = provider;
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent event) {
@@ -96,9 +102,6 @@ public final class TableCopySupport {
         }
     }
 
-    /** 表格 → 已注册 provider 的 client property key。 */
-    private static final String PROVIDER_KEY = "tablestructure.copyProvider";
-
     private static @NotNull DefaultActionGroup copyActions(@NotNull Provider provider) {
         return new DefaultActionGroup(
                 new EdtAction("复制单元格", "复制选中的单元格（列间制表符分隔，行间换行）") {
@@ -125,12 +128,23 @@ public final class TableCopySupport {
                 });
     }
 
-    private static void registerCopyProvider(@NotNull JBTable table, @NotNull DataProvider provider) {
-        // shortcut: registerDataProvider 在 262 标了 forRemoval，但组件级 DataProvider 目前没有等价替代
-        // （平台仍靠 client property + 父链查找来喂 PlatformDataKeys.COPY_PROVIDER）；等平台给出替代 API 再换。
-        @SuppressWarnings("removal")
-        Runnable register = () -> DataManager.registerDataProvider(table, provider);
-        register.run();
+    /**
+     * 表格自己实现 {@link UiDataProvider}：平台从焦点组件链直接收集数据，
+     * 替代 262 起标记 forRemoval 的 {@code DataManager.registerDataProvider}。
+     */
+    private static final class CopyTable extends JBTable implements UiDataProvider {
+        private @Nullable Provider provider;
+
+        CopyTable(@NotNull ReadOnlyTableModel model) {
+            super(model);
+        }
+
+        @Override
+        public void uiDataSnapshot(@NotNull DataSink sink) {
+            if (provider != null) {
+                sink.set(PlatformDataKeys.COPY_PROVIDER, provider);
+            }
+        }
     }
 
     /**
@@ -168,7 +182,7 @@ public final class TableCopySupport {
         return text.toString();
     }
 
-    private static final class Provider implements CopyProvider, DataProvider {
+    private static final class Provider implements CopyProvider {
         private final JTable table;
         private final ReadOnlyTableModel model;
         private final IntPredicate isRowHandle;
@@ -177,11 +191,6 @@ public final class TableCopySupport {
             this.table = table;
             this.model = model;
             this.isRowHandle = isRowHandle;
-        }
-
-        @Override
-        public @Nullable Object getData(@NotNull String dataId) {
-            return PlatformDataKeys.COPY_PROVIDER.is(dataId) ? this : null;
         }
 
         @Override

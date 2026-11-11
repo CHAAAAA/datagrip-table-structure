@@ -14,7 +14,7 @@
         <h3>Usage and requirements</h3>
         <p>In the Database tool window, right-click a table or view and select “查看表结构” (View Table Structure).
         Select “对象总览” (Object Overview) to browse a data source by schema.</p>
-        <p>Requires DataGrip with Database Tools and SQL. Built and binary-compatibility checked against DataGrip 2026.2.6 (build 262).
+        <p>Requires DataGrip with Database Tools and SQL. Built and binary-compatibility checked against DataGrip 2026.2.6 (build 262) and 2026.3 (build 263).
         Other IDE releases and database dialects have not been comprehensively tested.</p>
         <p>Structure data comes from DataGrip's introspected model. If objects are missing, check the selected schema,
         permissions, and introspection settings, refresh the data source in DataGrip, and then reload the overview.</p>
@@ -31,7 +31,7 @@
             <li>预览和复制选中列的 Oracle 新增列语句及列注释。</li>
         </ul>
         <p>在 Database 工具窗口右键选择“查看表结构”或“对象总览”即可使用。依赖 Database Tools and SQL，
-        已针对 DataGrip 2026.2.6（build 262）完成构建和二进制兼容性检查；其他 IDE 版本及数据库方言尚未全面验证。</p>
+        已针对 DataGrip 2026.2.6（build 262）和 2026.3（build 263）完成构建和二进制兼容性检查；其他 IDE 版本及数据库方言尚未全面验证。</p>
         <p>结构信息来自 DataGrip 已内省的模型。若缺少对象，请检查 schema、权限和内省设置，先在 DataGrip 刷新数据源，再刷新对象总览。</p>
         <p>选中列的 DDL 预览始终使用 Oracle 语法，不会自动适配其他数据库；自增列、计算列及缺少类型的列会跳过并附加说明。
         生成的 SQL 不会自动执行；在原生表操作工具中应用修改可能更改数据或结构。结构和总览标签页暂不支持 IDE 重启后恢复。</p>
@@ -41,6 +41,12 @@
     ]]></description>
 
     <change-notes><![CDATA[
+        <p>1.0.2</p>
+        <ul>
+            <li>Support DataGrip 2026.3 (build 263) while keeping 2026.2 compatibility.</li>
+            <li>Removed deprecated, scheduled-for-removal and experimental API usages reported by Plugin Verifier.</li>
+        </ul>
+        <p>中文：兼容 DataGrip 2026.3（build 263）并保留 2026.2 兼容；清理 Plugin Verifier 报告的弃用、待移除和实验性 API 用法。</p>
         <p>1.0.1</p>
         <ul>
             <li>Drag-select table cells and copy only the selected cells; row copying is still available.</li>

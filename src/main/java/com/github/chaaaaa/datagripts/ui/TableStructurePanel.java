@@ -341,7 +341,7 @@ public final class TableStructurePanel extends JPanel {
     // ------------------------------------------------------------------ helpers
 
     private static @NotNull JBTable createTable(@NotNull ReadOnlyTableModel model, @NotNull int[] preferredWidths) {
-        JBTable table = new JBTable(model);
+        JBTable table = TableCopySupport.createTable(model);
         table.setAutoCreateRowSorter(true);
         table.setCellSelectionEnabled(true);
         table.setFillsViewportHeight(true);

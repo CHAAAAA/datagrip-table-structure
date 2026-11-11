@@ -24,7 +24,7 @@
 | `src/main/java/com/github/chaaaaa/datagripts/action/` | 菜单动作、`TableStructureOpener` / `ObjectBrowserOpener`、原生修改表桥接 |
 | `src/main/java/com/github/chaaaaa/datagripts/editor/` | `FileEditor`、Provider、VirtualFile；`TableStructureService` 负责项目级标签页复用 |
 | `src/main/java/com/github/chaaaaa/datagripts/model/` | 表结构快照、列与约束信息、对象标识 |
-| `src/main/java/com/github/chaaaaa/datagripts/service/` | `TableStructureLoader`、`ObjectBrowserLoader`、`TableRefreshService`、`AlterDdlGenerator` |
+| `src/main/java/com/github/chaaaaa/datagripts/service/` | `TableStructureLoader`、`ObjectBrowserLoader`、`AlterDdlGenerator` |
 | `src/main/java/com/github/chaaaaa/datagripts/ui/` | Swing 面板、只读表格、过滤、复制和 DDL 预览 |
 | `src/main/resources/META-INF/plugin.xml` | 插件描述、扩展注册、菜单与快捷键 |
 | `src/selfCheck/java/com/github/chaaaaa/datagripts/` | 独立 source set 中的 `main` 自检，包结构与被测代码对应 |
@@ -42,7 +42,7 @@
 - 异步工作绑定编辑器生命周期，保留取消、过期与错误处理；回调更新 UI 前检查编辑器是否已释放，避免旧结果覆盖新请求。关闭编辑器时取消任务并断开消息订阅。
 - 通过 `TableStructureService` 复用 VirtualFile；不要每次打开同一对象都新建虚拟文件。保留 `FileEditor.getFile()`、Provider 的 `DumbAware` 和轻量 `accept()` 实现。
 - 自定义文件类型只用于合成虚拟文件，不绑定 `.sql` 等真实文件扩展名。当前不支持重启恢复标签页，不把它描述为已实现能力。
-- 刷新表结构复用 `TableRefreshService` 的 DataGrip 内省流程，保留不支持内省时重读模型的回退行为。编辑表结构复用 `TableActionBridge` 的原生对话框。
+- 刷新表结构通过 `TableActionBridge` 调用 DataGrip 原生「刷新片段」动作重新内省，保留动作不可用或内省未完成时重读模型的回退行为。编辑表结构复用 `TableActionBridge` 的原生对话框。
 - 不自行建立 JDBC 连接或自动执行 DDL。`AlterDdlGenerator` 只生成 Oracle 预览文本；保留标识符引用、注释转义、默认值顺序和特殊列跳过处理。
 - 复用平台 Swing 组件与主题颜色；保留 HTML 展示文本的转义、只读属性以及排序/筛选后表格索引到模型索引的转换。
 - 不把个人绝对路径、构建缓存、安装包或临时输出加入源码；本地路径通过环境变量或用户级 Gradle 配置提供。

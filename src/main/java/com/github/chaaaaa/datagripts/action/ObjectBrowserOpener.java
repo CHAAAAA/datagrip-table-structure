@@ -4,7 +4,6 @@ import com.github.chaaaaa.datagripts.editor.ObjectBrowserVirtualFile;
 import com.github.chaaaaa.datagripts.editor.TableStructureService;
 import com.intellij.database.psi.DbDataSource;
 import com.intellij.database.psi.DbElement;
-import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,9 +14,9 @@ public final class ObjectBrowserOpener {
     }
 
     public static void open(@NotNull Project project, @NotNull DbDataSource dataSource) {
-        ObjectBrowserVirtualFile file = TableStructureService.getInstance(project)
-                .browserFor(dataSource.getUniqueId(), dataSource.getName());
-        FileEditorManager.getInstance(project).openFile(file, true);
+        TableStructureService service = TableStructureService.getInstance(project);
+        ObjectBrowserVirtualFile file = service.browserFor(dataSource.getUniqueId(), dataSource.getName());
+        service.openEditor(project, file);
     }
 
     /** 选中数据源节点时用它本身，选中库里其他对象时用其所属数据源。 */

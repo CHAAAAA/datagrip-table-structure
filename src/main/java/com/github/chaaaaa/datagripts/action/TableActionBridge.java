@@ -1,6 +1,6 @@
 package com.github.chaaaaa.datagripts.action;
 
-import com.intellij.database.actions.ddl.ModifyObjectAction;
+import com.intellij.database.model.basic.BasicElement;
 import com.intellij.database.psi.DbElement;
 import com.intellij.database.psi.DbTable;
 import com.intellij.database.view.DatabaseView;
@@ -25,14 +25,16 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CancellationException;
 
 /**
- * 给 DataGrip 原生动作提供当前表上下文，复用修改表、数据编辑器和 CREATE SQL 生成功能。
+ * 给 DataGrip 原生动作提供当前表上下文，复用修改表、数据编辑器、CREATE SQL 生成和刷新片段功能。
  */
 public final class TableActionBridge {
 
     private static final Logger LOG = Logger.getInstance(TableActionBridge.class);
 
-    /** 官方 plugin.xml 中的动作 id；该动作标了 internal，部分版本可能取不到。 */
+    /** 官方 plugin.xml 中的动作 id；该动作标了 internal，但注册后仍可通过 ActionManager 取到。 */
     private static final String MODIFY_OBJECT_ACTION_ID = "DatabaseView.Alterations.ModifyObject";
+    /** 数据源右键「刷新」中刷新单个对象的动作；它内部走的正是表结构刷新需要的片段内省。 */
+    private static final String REFRESH_FRAGMENT_ACTION_ID = "DatabaseView.RefreshFragment";
 
     private TableActionBridge() {
     }
@@ -56,6 +58,18 @@ public final class TableActionBridge {
         return perform(project, table, "DatabaseView.OpenDdlInConsole", "生成创建 SQL");
     }
 
+    /** 让 DataGrip 从数据库重新内省当前表；返回 {@code false} 表示原生动作不可用，调用方退回重读模型。 */
+    public static boolean refreshFragment(@NotNull Project project, @NotNull DbTable table) {
+        return perform(project, table, REFRESH_FRAGMENT_ACTION_ID, "刷新表结构");
+    }
+
+    /** 原生动作除 PSI 的 {@code DB_ELEMENTS} 外还会读模型层的 {@code DATABASE_ELEMENTS}（刷新片段动作只读这个）。 */
+    private static @NotNull BasicElement[] basicElementsOf(@NotNull DbTable table) {
+        Object delegate = table.getDelegate();
+        return delegate instanceof BasicElement element
+                ? new BasicElement[]{element} : new BasicElement[0];
+    }
+
     private static boolean perform(@NotNull Project project, @NotNull DbTable table,
                                    @NotNull String actionId, @NotNull String operation) {
         if (!ApplicationManager.getApplication().isDispatchThread()) {
@@ -63,11 +77,9 @@ public final class TableActionBridge {
                     () -> perform(project, table, actionId, operation), ModalityState.any());
             return true;
         }
-        // 依赖 com.intellij.database 内部 API，跨大版本可能变化；失败不能连带搞崩总览 tab。
+        // 依赖 com.intellij.database 内部动作 id，跨大版本可能变化；失败不能连带搞崩总览 tab。
         try {
-            AnAction registered = ActionManager.getInstance().getAction(actionId);
-            AnAction action = registered == null && MODIFY_OBJECT_ACTION_ID.equals(actionId)
-                    ? new ModifyObjectAction() : registered;
+            AnAction action = ActionManager.getInstance().getAction(actionId);
             if (action == null) {
                 return false;
             }
@@ -75,6 +87,7 @@ public final class TableActionBridge {
             DataContext context = SimpleDataContext.builder()
                     .add(CommonDataKeys.PROJECT, project)
                     .add(DatabaseView.DB_ELEMENTS, elements)
+                    .add(DatabaseView.DATABASE_ELEMENTS, basicElementsOf(table))
                     .add(CommonDataKeys.PSI_ELEMENT, table)
                     .add(PlatformCoreDataKeys.PSI_ELEMENT_ARRAY, elements)
                     .build();
